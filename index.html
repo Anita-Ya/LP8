@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="hi">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,12 +8,16 @@
   <!-- Google Fonts: Mukta & Poppins -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap"
+    rel="stylesheet">
   <style>
     :root {
       --bg: #FFFFFF;
-      --primary: #1D3557;       /* Dark Blue */
-      --accent: #E63946;        /* Red Accent */
+      --primary: #1D3557;
+      /* Dark Blue */
+      --accent: #E63946;
+      /* Red Accent */
       --max-width: 450px;
       --card-bg: #FFFFFF;
     }
@@ -1172,7 +1177,7 @@
       box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.12);
     }
 
-    .order-field-input:focus ~ .order-input-icon,
+    .order-field-input:focus~.order-input-icon,
     .order-input-wrapper:focus-within .order-input-icon {
       color: var(--primary);
     }
@@ -1185,7 +1190,7 @@
     }
 
     .order-input-wrapper.is-invalid .order-input-icon,
-    .order-field-input.is-invalid ~ .order-input-icon {
+    .order-field-input.is-invalid~.order-input-icon {
       color: var(--accent) !important;
     }
 
@@ -1469,77 +1474,98 @@
       .section-title {
         font-size: 19px;
       }
+
       .arch-image-wrap {
         width: 135px;
         height: 156px;
         border-radius: 70px 70px 16px 16px;
         border-width: 3.5px;
       }
+
       .card-title-text {
         font-size: 21px;
         font-weight: 800;
         line-height: 1.35;
       }
+
       .alert-text {
         font-size: 16.5px;
       }
+
       .product-main-title {
         font-size: 19.5px;
       }
+
       .product-badge-pill {
         font-size: 14.5px;
         padding: 5px 14px;
       }
+
       .product-bottle-box {
         max-width: 215px;
       }
+
       .feature-text {
         font-size: 14px;
       }
+
       .feature-pill-card {
         padding: 8px 9px;
         gap: 7px;
       }
+
       .feature-icon-box {
         width: 28px;
         height: 28px;
       }
+
       .feature-icon-box svg {
         width: 15px;
         height: 15px;
       }
+
       .aspects-main-title {
         font-size: 19px;
       }
+
       .aspect-card-title {
         font-size: 18px;
       }
+
       .aspect-card-desc {
         font-size: 15px;
       }
+
       .aspect-card-img-box {
         height: 175px;
       }
+
       .aspect-card-body {
         padding: 15px 16px 18px 16px;
       }
+
       .ingredients-main-title {
         font-size: 20px;
       }
+
       .ingredient-title {
         font-size: 20px;
       }
+
       .ingredient-photo-frame {
         width: 108px;
         height: 108px;
         border-radius: 46px 16px 16px 46px;
       }
+
       .ingredient-card.reverse-card .ingredient-photo-frame {
         border-radius: 16px 46px 46px 16px;
       }
+
       .before-after-title {
         font-size: 20px;
       }
+
       .ba-card-caption {
         font-size: 15px;
         min-height: 70px;
@@ -1727,6 +1753,7 @@
         transform: translate(-50%, 100%);
         opacity: 0;
       }
+
       to {
         transform: translate(-50%, 0);
         opacity: 1;
@@ -1815,17 +1842,14 @@
     }
   </style>
 </head>
+
 <body>
 
   <main class="landing-wrapper">
     <!-- 1st Section: Main Hero Banner -->
     <section class="banner-section">
-      <img 
-        class="banner-img" 
-        src="banner.jpg" 
-        alt="बच्चा तो कोशिश बहुत करता है... लेकिन उसका शरीर उसका साथ नहीं दे पाता!"
-        loading="eager"
-      >
+      <img class="banner-img" src="banner.jpg"
+        alt="बच्चा तो कोशिश बहुत करता है... लेकिन उसका शरीर उसका साथ नहीं दे पाता!" loading="eager">
     </section>
 
     <!-- 2nd Section: Symptoms with Arch Image Cards -->
@@ -1851,7 +1875,8 @@
 
         <!-- Arrow Down -->
         <div class="card-arrow">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
@@ -1869,7 +1894,8 @@
 
         <!-- Arrow Down -->
         <div class="card-arrow alt-arrow">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
@@ -1887,7 +1913,8 @@
 
         <!-- Arrow Down -->
         <div class="card-arrow">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
@@ -1905,7 +1932,8 @@
 
         <!-- Arrow Down -->
         <div class="card-arrow alt-arrow">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
@@ -1923,7 +1951,8 @@
 
         <!-- Arrow Down -->
         <div class="card-arrow">
-          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+            stroke-linecap="round" stroke-linejoin="round">
             <line x1="12" y1="5" x2="12" y2="19"></line>
             <polyline points="19 12 12 19 5 12"></polyline>
           </svg>
@@ -1932,7 +1961,8 @@
         <!-- Card 6: ध्यान लगाने और नई बातें सीखने में परेशानी। -->
         <div class="symptom-card alt-card">
           <div class="arch-image-wrap">
-            <img src="images/images (5).jpg" style="object-position: 30% center;" alt="ध्यान लगाने और नई बातें सीखने में परेशानी">
+            <img src="images/images (5).jpg" style="object-position: 30% center;"
+              alt="ध्यान लगाने और नई बातें सीखने में परेशानी">
           </div>
           <div class="card-text-col">
             <p class="card-title-text">ध्यान लगाने और नई बातें सीखने में परेशानी।</p>
@@ -1942,7 +1972,8 @@
         <!-- Concluding Advice Note -->
         <div class="symptoms-alert-box">
           <div class="alert-icon-wrap">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
               <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
               <line x1="12" y1="9" x2="12" y2="13"></line>
               <line x1="12" y1="17" x2="12.01" y2="17"></line>
@@ -1977,7 +2008,8 @@
           <!-- Feature 1 -->
           <div class="feature-pill-card">
             <div class="feature-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                 <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
               </svg>
@@ -1988,7 +2020,8 @@
           <!-- Feature 2 -->
           <div class="feature-pill-card">
             <div class="feature-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
                 <polyline points="22 4 12 14.01 9 11.01"></polyline>
               </svg>
@@ -1999,7 +2032,8 @@
           <!-- Feature 3 -->
           <div class="feature-pill-card">
             <div class="feature-icon-box">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M10 2v7.31"></path>
                 <path d="M14 2v7.31"></path>
                 <path d="M8.5 2h7"></path>
@@ -2033,7 +2067,8 @@
           <div class="aspect-card-body">
             <div class="aspect-title-row">
               <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
                 </svg>
@@ -2054,7 +2089,8 @@
           <div class="aspect-card-body">
             <div class="aspect-title-row">
               <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
                 </svg>
@@ -2075,7 +2111,8 @@
           <div class="aspect-card-body">
             <div class="aspect-title-row">
               <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
                 </svg>
@@ -2096,7 +2133,8 @@
           <div class="aspect-card-body">
             <div class="aspect-title-row">
               <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                  stroke-linejoin="round">
                   <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
                   <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
                 </svg>
@@ -2296,18 +2334,13 @@
               आपका नाम <span class="required-dot">*</span>
             </label>
             <div class="order-input-wrapper" id="nameWrapper">
-              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
                 <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
                 <circle cx="12" cy="7" r="4"></circle>
               </svg>
-              <input 
-                type="text" 
-                id="user-name" 
-                name="name" 
-                class="order-field-input" 
-                placeholder="अपना पूरा नाम दर्ज करें" 
-                autocomplete="name"
-              >
+              <input type="text" id="user-name" name="name" class="order-field-input"
+                placeholder="अपना पूरा नाम दर्ज करें" autocomplete="name">
             </div>
             <div class="order-field-error" id="nameError">कृपया अपना नाम दर्ज करें</div>
           </div>
@@ -2318,18 +2351,14 @@
               मोबाइल नंबर <span class="required-dot">*</span>
             </label>
             <div class="order-input-wrapper" id="phoneWrapper">
-              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <path
+                  d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z">
+                </path>
               </svg>
-              <input 
-                type="tel" 
-                id="user-phone" 
-                name="phone" 
-                class="order-field-input" 
-                placeholder="अपना 10 अंकों का मोबाइल नंबर दर्ज करें" 
-                maxlength="10" 
-                autocomplete="tel"
-              >
+              <input type="tel" id="user-phone" name="phone" class="order-field-input"
+                placeholder="अपना 10 अंकों का मोबाइल नंबर दर्ज करें" maxlength="10" autocomplete="tel">
             </div>
             <div class="order-field-error" id="phoneError">10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)</div>
           </div>
@@ -2337,7 +2366,8 @@
           <!-- CTA Button -->
           <button type="submit" class="order-submit-btn">
             <span>अभी जानकारी प्राप्त करें</span>
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
               <line x1="5" y1="12" x2="19" y2="12"></line>
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
@@ -2346,7 +2376,8 @@
           <!-- Trust Badges Footer -->
           <div class="order-trust-footer">
             <span class="order-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
                 <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
               </svg>
@@ -2354,14 +2385,16 @@
             </span>
             <span class="order-trust-sep">&middot;</span>
             <span class="order-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
               </svg>
               Product Information
             </span>
             <span class="order-trust-sep">&middot;</span>
             <span class="order-trust-item">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+                stroke-linejoin="round">
                 <rect x="1" y="3" width="15" height="13"></rect>
                 <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
                 <circle cx="5.5" cy="18.5" r="2.5"></circle>
@@ -2398,15 +2431,36 @@
             <div class="parent-review-top">
               <h4 class="parent-name">रमेश शर्मा</h4>
               <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
               </div>
             </div>
             <p class="parent-review-quote">
-              Neuro Mantra Syrup शुरू करने के कुछ हफ्तों बाद ही बच्चे में सकारात्मक बदलाव दिखने लगे। अब वह चीज़ों पर बेहतर ध्यान लगा पा रहा है और चिड़चिड़ापन काफी कम हो गया है।
+              Neuro Mantra Syrup शुरू करने के कुछ हफ्तों बाद ही बच्चे में सकारात्मक बदलाव दिखने लगे। अब वह चीज़ों पर
+              बेहतर ध्यान लगा पा रहा है और चिड़चिड़ापन काफी कम हो गया है।
             </p>
           </div>
         </div>
@@ -2423,15 +2477,36 @@
             <div class="parent-review-top">
               <h4 class="parent-name">सुरेश वर्मा</h4>
               <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
               </div>
             </div>
             <p class="parent-review-quote">
-              इसका स्वाद बहुत अच्छा है इसलिए बच्चा बिना किसी परेशानी के रोज़ इसे ले लेता है। चलने-फिरने में शारीरिक संतुलन और एक्टिवनेस में बहुत सुधार आया है।
+              इसका स्वाद बहुत अच्छा है इसलिए बच्चा बिना किसी परेशानी के रोज़ इसे ले लेता है। चलने-फिरने में शारीरिक
+              संतुलन और एक्टिवनेस में बहुत सुधार आया है।
             </p>
           </div>
         </div>
@@ -2448,15 +2523,36 @@
             <div class="parent-review-top">
               <h4 class="parent-name">मीना गुप्ता</h4>
               <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
-                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
+                <svg viewBox="0 0 24 24">
+                  <polygon
+                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
+                  </polygon>
+                </svg>
               </div>
             </div>
             <p class="parent-review-quote">
-              पूरी तरह प्राकृतिक और सुरक्षित आयुर्वेदिक फॉर्मूलेशन है। कोई साइड इफ़ेक्ट नहीं हुआ और पैकेजिंग भी बहुत अच्छी है। इस प्रोडक्ट की क्वालिटी पर हमें पूरा भरोसा है।
+              पूरी तरह प्राकृतिक और सुरक्षित आयुर्वेदिक फॉर्मूलेशन है। कोई साइड इफ़ेक्ट नहीं हुआ और पैकेजिंग भी बहुत
+              अच्छी है। इस प्रोडक्ट की क्वालिटी पर हमें पूरा भरोसा है।
             </p>
           </div>
         </div>
@@ -2480,13 +2576,15 @@
           <button class="faq-question" type="button" aria-expanded="true">
             <span>1. Neuro Mantra Syrup क्या है?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
           </button>
           <div class="faq-answer">
-            <p>Neuro Mantra, SP Herbal Life का Syrup है। ye Focus & Concentration Support, Memory Care और Nerve Health ko support karta है।</p>
+            <p>Neuro Mantra, SP Herbal Life का Syrup है। ye Focus & Concentration Support, Memory Care और Nerve Health
+              ko support karta है।</p>
           </div>
         </div>
 
@@ -2495,7 +2593,8 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>2. क्या Neuro Mantra बच्चों के लिए इस्तेमाल किया जा सकता है?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
@@ -2510,13 +2609,15 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>3. क्या यह Brain Development में मदद करता है?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
           </button>
           <div class="faq-answer">
-            <p>बच्चे का Brain Development कई कारकों पर निर्भर करता है। किसी Product से Brain Development बेहतर होने का दावा प्रमाणों के आधार पर ही किया जाना चाहिए।</p>
+            <p>बच्चे का Brain Development कई कारकों पर निर्भर करता है। किसी Product से Brain Development बेहतर होने का
+              दावा प्रमाणों के आधार पर ही किया जाना चाहिए।</p>
           </div>
         </div>
 
@@ -2525,13 +2626,15 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>4. क्या यह चलने, बोलने या मांसपेशियों की कमजोरी में मदद करता है?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
           </button>
           <div class="faq-answer">
-            <p>इन समस्याओं के कई कारण हो सकते हैं। सही जाँच और विशेषज्ञ द्वारा निर्धारित उपचार ज़रूरी है। Neuro Mantra को इसका विकल्प नहीं मानना चाहिए।</p>
+            <p>इन समस्याओं के कई कारण हो सकते हैं। सही जाँच और विशेषज्ञ द्वारा निर्धारित उपचार ज़रूरी है। Neuro Mantra
+              को इसका विकल्प नहीं मानना चाहिए।</p>
           </div>
         </div>
 
@@ -2540,7 +2643,8 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>5. Neuro Mantra Syrup का इस्तेमाल कैसे करें?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
@@ -2555,13 +2659,15 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>6. कितने समय में परिणाम दिखाई देते हैं?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
           </button>
           <div class="faq-answer">
-            <p>परिणामों के लिए कोई निश्चित समय बताना उचित नहीं है। किसी भी लाभ की पुष्टि उपलब्ध प्रमाणों के आधार पर होनी चाहिए।</p>
+            <p>परिणामों के लिए कोई निश्चित समय बताना उचित नहीं है। किसी भी लाभ की पुष्टि उपलब्ध प्रमाणों के आधार पर होनी
+              चाहिए।</p>
           </div>
         </div>
 
@@ -2570,7 +2676,8 @@
           <button class="faq-question" type="button" aria-expanded="false">
             <span>7. क्या Cash on Delivery उपलब्ध है?</span>
             <span class="faq-icon">
-              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
+                stroke-linecap="round" stroke-linejoin="round">
                 <polyline points="6 9 12 15 18 9"></polyline>
               </svg>
             </span>
@@ -2586,7 +2693,10 @@
     <section class="disclaimer-section" id="disclaimer">
       <div class="disclaimer-box">
         <p class="disclaimer-text">
-          <span class="disclaimer-label">Disclaimer:</span> बच्चों के मानसिक और शारीरिक विकास में देरी, चलने-फिरने में परेशानी, मांसपेशियों की कमजोरी और अन्य न्यूरोलॉजिकल लक्षणों के कई कारण हो सकते हैं। Neuro Mantra Syrup चिकित्सकीय जाँच, निदान, निर्धारित उपचार या थेरेपी का विकल्प नहीं है। बच्चों को कोई भी Product देने से पहले बाल रोग विशेषज्ञ से सलाह लें। Product से जुड़े सभी लाभ और दावे प्रमाणित जानकारी के अनुरूप ही होने चाहिए।
+          <span class="disclaimer-label">Disclaimer:</span> बच्चों के मानसिक और शारीरिक विकास में देरी, चलने-फिरने में
+          परेशानी, मांसपेशियों की कमजोरी और अन्य न्यूरोलॉजिकल लक्षणों के कई कारण हो सकते हैं। Neuro Mantra Syrup
+          चिकित्सकीय जाँच, निदान, निर्धारित उपचार या थेरेपी का विकल्प नहीं है। बच्चों को कोई भी Product देने से पहले बाल
+          रोग विशेषज्ञ से सलाह लें। Product से जुड़े सभी लाभ और दावे प्रमाणित जानकारी के अनुरूप ही होने चाहिए।
         </p>
       </div>
     </section>
@@ -2609,10 +2719,11 @@
     <div class="thankyou-modal-card">
       <!-- Close Button -->
       <button class="thankyou-close-btn" id="closeModalBtn" aria-label="Close">&times;</button>
-      
+
       <!-- Success Icon Circle -->
       <div class="thankyou-icon-circle">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round"
+          stroke-linejoin="round">
           <polyline points="20 6 9 17 4 12"></polyline>
         </svg>
       </div>
@@ -2636,7 +2747,7 @@
         </div>
         <div class="thankyou-detail-row">
           <span class="detail-label">Mobile:</span>
-          <span class="detail-value" id="modalCustomerPhone">+91 9001050074</span>
+          <span class="detail-value" id="modalCustomerPhone">+91 </span>
         </div>
         <div class="thankyou-detail-row">
           <span class="detail-label">Delivery:</span>
@@ -2856,4 +2967,5 @@
     });
   </script>
 </body>
+
 </html>
