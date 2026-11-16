@@ -1848,7 +1848,7 @@
   <main class="landing-wrapper">
     <!-- 1st Section: Main Hero Banner -->
     <section class="banner-section">
-      <img class="banner-img" src="banner.jpg"
+      <img class="banner-img" src="images/banner.jpg"
         alt="बच्चा तो कोशिश बहुत करता है... लेकिन उसका शरीर उसका साथ नहीं दे पाता!" loading="eager">
     </section>
 
@@ -2905,12 +2905,8 @@
         modalCustomerPhone.textContent = '+91 ' + phoneVal;
         modalOrderId.textContent = orderId;
 
-        // Open Modal
-        modal.classList.add('active');
-        document.body.style.overflow = 'hidden';
-
-        // Reset form inputs
-        form.reset();
+        // Redirect to dedicated Thank You Page
+        window.location.href = `thankyou.html?name=${encodeURIComponent(nameVal)}&phone=${encodeURIComponent(phoneVal)}&orderId=${encodeURIComponent(orderId)}`;
       });
 
       // Close Modal Handler
