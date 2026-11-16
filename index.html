@@ -1,0 +1,2741 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Landing Page</title>
+  <!-- Google Fonts: Mukta & Poppins -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FFFFFF;
+      --primary: #1D3557;       /* Dark Blue */
+      --accent: #E63946;        /* Red Accent */
+      --max-width: 450px;
+      --card-bg: #FFFFFF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: #E8EEF3;
+      font-family: 'Mukta', sans-serif;
+      color: var(--primary);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Mobile First Container (Max 450px) */
+    .landing-wrapper {
+      width: 100%;
+      max-width: var(--max-width);
+      min-height: 100vh;
+      background-color: var(--bg);
+      box-shadow: 0 12px 40px rgba(29, 53, 87, 0.12);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* 1. Main Hero Banner */
+    .banner-section {
+      width: 100%;
+      line-height: 0;
+      background-color: var(--bg);
+    }
+
+    .banner-img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* 2. Symptoms Section */
+    .symptoms-section {
+      width: 100%;
+      background: linear-gradient(180deg, #FFFFFF 0%, #F9FBFC 100%);
+      padding: 28px 16px 36px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Section Headline Box */
+    .section-title-wrap,
+    .section-header-banner {
+      width: 100%;
+      background: linear-gradient(135deg, #1D3557 0%, #152741 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(29, 53, 87, 0.22);
+      border-bottom: 4.5px solid var(--accent);
+      position: relative;
+    }
+
+    .section-title,
+    .section-header-banner-title {
+      color: #FFFFFF !important;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.38;
+      letter-spacing: -0.2px;
+      margin: 0;
+      font-family: inherit;
+    }
+
+    /* Symptoms Cards Stack */
+    .symptoms-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Reference Card Style: White card with colored offset bottom-left border */
+    .symptom-card {
+      width: 100%;
+      background-color: #FFFFFF;
+      border-radius: 20px;
+      border: 1.5px solid rgba(29, 53, 87, 0.1);
+      box-shadow: -5px 6px 0px 0px var(--accent);
+      padding: 14px 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    /* Alternating Card Border Accent (Red and Dark Blue) */
+    .symptom-card.alt-card {
+      box-shadow: -5px 6px 0px 0px var(--primary);
+    }
+
+    .symptom-card:hover {
+      transform: translateY(-2px);
+    }
+
+    /* Left Arch Image Frame - Enlarged */
+    .arch-image-wrap {
+      width: 120px;
+      height: 142px;
+      border-radius: 65px 65px 16px 16px;
+      border: 3px solid var(--accent);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #F4F6F9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .symptom-card.alt-card .arch-image-wrap {
+      border-color: var(--primary);
+    }
+
+    .arch-image-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    /* Right Text Column */
+    .card-text-col {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .card-title-text {
+      font-size: 19.5px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.42;
+      letter-spacing: -0.2px;
+    }
+
+    /* Downward Arrow Connector between cards */
+    .card-arrow {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 10px 0;
+      box-shadow: 0 2px 6px rgba(230, 57, 70, 0.15);
+    }
+
+    .card-arrow.alt-arrow {
+      background: rgba(29, 53, 87, 0.1);
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(29, 53, 87, 0.15);
+    }
+
+    /* Bottom Alert / Concluding Note Box */
+    .symptoms-alert-box {
+      width: 100%;
+      margin-top: 24px;
+      background: linear-gradient(135deg, rgba(230, 57, 70, 0.06) 0%, rgba(29, 53, 87, 0.04) 100%);
+      border: 1.5px solid rgba(230, 57, 70, 0.25);
+      border-left: 5px solid var(--accent);
+      border-radius: 16px;
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      box-shadow: 0 4px 14px rgba(230, 57, 70, 0.08);
+    }
+
+    .alert-icon-wrap {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--accent);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .alert-icon-wrap svg {
+      width: 22px;
+      height: 22px;
+    }
+
+    .alert-text {
+      font-size: 18.5px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.45;
+    }
+
+    /* ========================================================
+       3. Product Showcase Section (Designed like reference image)
+       ======================================================== */
+    .product-showcase-section {
+      width: 100%;
+      background: linear-gradient(165deg, #1D3557 0%, #112239 100%);
+      padding: 30px 16px 36px 16px;
+      position: relative;
+      overflow: hidden;
+      color: #FFFFFF;
+      box-shadow: inset 0 6px 18px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Decorative background aura */
+    .product-showcase-section::before {
+      content: "";
+      position: absolute;
+      top: -40px;
+      right: -40px;
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle, rgba(230, 57, 70, 0.28) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .product-showcase-section::after {
+      content: "";
+      position: absolute;
+      bottom: -30px;
+      left: -30px;
+      width: 150px;
+      height: 150px;
+      background: radial-gradient(circle, rgba(69, 123, 157, 0.28) 0%, transparent 70%);
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    /* Main Product Title */
+    .product-main-title {
+      font-size: 22px;
+      font-weight: 800;
+      line-height: 1.36;
+      text-align: center;
+      color: #FFFFFF;
+      margin-bottom: 12px;
+      letter-spacing: -0.3px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Sub-badge Pill (Like the reference image) */
+    .product-badge-wrap {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 22px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .product-badge-pill {
+      display: inline-block;
+      background: rgba(230, 57, 70, 0.22);
+      border: 1.5px solid var(--accent);
+      color: #FFFFFF;
+      font-size: 16px;
+      font-weight: 700;
+      padding: 6px 18px;
+      border-radius: 999px;
+      box-shadow: 0 4px 14px rgba(230, 57, 70, 0.25);
+      letter-spacing: 0.2px;
+    }
+
+    /* Product Showcase Flex Row */
+    .product-showcase-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      position: relative;
+      z-index: 2;
+    }
+
+    /* Left: Product Bottle (Hero angle like reference) */
+    .product-bottle-col {
+      flex: 1.08;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .product-bottle-box {
+      position: relative;
+      width: 100%;
+      max-width: 200px;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      background: #0C1A2E;
+      transform: rotate(-3deg);
+      transition: transform 0.3s ease;
+    }
+
+    .product-bottle-box:hover {
+      transform: rotate(0deg) scale(1.02);
+    }
+
+    .product-bottle-box img {
+      width: 100%;
+      height: auto;
+      display: block;
+      object-fit: cover;
+    }
+
+    /* Right: Feature Pill Cards (Stacked like reference image) */
+    .product-features-col {
+      flex: 1.12;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .feature-pill-card {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      border-radius: 16px;
+      padding: 13px 14px;
+      display: flex;
+      align-items: center;
+      gap: 11px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transition: transform 0.2s ease, background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .feature-pill-card:hover {
+      transform: translateX(3px);
+      background: rgba(255, 255, 255, 0.16);
+      border-color: var(--accent);
+    }
+
+    .feature-icon-box {
+      width: 36px;
+      height: 36px;
+      border-radius: 11px;
+      background: rgba(230, 57, 70, 0.25);
+      color: #FFB3BA;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .feature-icon-box svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .feature-text {
+      font-size: 16px;
+      font-weight: 700;
+      color: #FFFFFF;
+      line-height: 1.35;
+      font-family: 'Mukta', 'Poppins', sans-serif;
+    }
+
+    /* ========================================================
+       4. Mental Wellness 4 Aspects Section (Reference Card Style)
+       ======================================================== */
+    .aspects-section {
+      width: 100%;
+      background: linear-gradient(165deg, #1D3557 0%, #102137 100%);
+      padding: 32px 16px 42px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .aspects-header-box {
+      width: 100%;
+      background: linear-gradient(135deg, #1D3557 0%, #152741 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(29, 53, 87, 0.22);
+      border-bottom: 4.5px solid var(--accent);
+    }
+
+    .aspects-main-title {
+      color: #FFFFFF;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.38;
+      letter-spacing: -0.2px;
+    }
+
+    .aspects-cards-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 22px;
+    }
+
+    /* Card styling strictly using page brand colors */
+    .aspect-showcase-card {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 22px;
+      border: 2px solid var(--accent);
+      overflow: hidden;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .aspect-showcase-card:nth-child(even) {
+      border-color: var(--primary);
+    }
+
+    .aspect-showcase-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 14px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .aspect-card-img-box {
+      width: 100%;
+      height: 195px;
+      overflow: hidden;
+      background: #FFFFFF;
+      position: relative;
+    }
+
+    .aspect-card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .aspect-card-body {
+      padding: 18px 20px 20px 20px;
+      background: #FFFFFF;
+    }
+
+    .aspect-title-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .aspect-leaf-icon {
+      width: 22px;
+      height: 22px;
+      color: var(--accent);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .aspect-showcase-card:nth-child(even) .aspect-leaf-icon {
+      color: var(--primary);
+    }
+
+    .aspect-leaf-icon svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .aspect-card-title {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+      line-height: 1.32;
+    }
+
+    .aspect-card-desc {
+      font-size: 16.5px;
+      font-weight: 500;
+      color: var(--primary);
+      opacity: 0.9;
+      line-height: 1.5;
+    }
+
+    /* ========================================================
+       5. Herbal Ingredients Section (Alternating Left-Right Cards)
+       ======================================================== */
+    .ingredients-section {
+      width: 100%;
+      background: linear-gradient(165deg, #1D3557 0%, #102137 100%);
+      padding: 32px 16px 42px 16px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .ingredients-header-box {
+      width: 100%;
+      background: linear-gradient(135deg, #1D3557 0%, #152741 100%);
+      border: 1.5px solid rgba(255, 255, 255, 0.16);
+      border-radius: 16px;
+      padding: 16px 18px;
+      margin-bottom: 22px;
+      text-align: center;
+      box-shadow: 0 8px 22px rgba(29, 53, 87, 0.22);
+      border-bottom: 4.5px solid var(--accent);
+    }
+
+    .ingredients-main-title {
+      color: #FFFFFF;
+      font-size: 21px;
+      font-weight: 800;
+      line-height: 1.38;
+      letter-spacing: -0.2px;
+    }
+
+    .ingredients-cards-list {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* Card styling strictly using page brand colors with alternating Left & Right */
+    .ingredient-card {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 24px;
+      border: 2px solid var(--primary);
+      box-shadow: 0 8px 22px rgba(0, 0, 0, 0.18);
+      display: flex;
+      align-items: center;
+      padding: 14px 18px;
+      gap: 18px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .ingredient-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.25);
+    }
+
+    /* Alternating Right side image card */
+    .ingredient-card.reverse-card {
+      flex-direction: row-reverse;
+      border-color: var(--accent);
+    }
+
+    /* Arched photo frame enlarged */
+    .ingredient-photo-frame {
+      width: 128px;
+      height: 128px;
+      border-radius: 54px 20px 20px 54px;
+      border: 3px solid var(--primary);
+      overflow: hidden;
+      flex-shrink: 0;
+      background: #F4F6F9;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ingredient-card.reverse-card .ingredient-photo-frame {
+      border-radius: 20px 54px 54px 20px;
+      border-color: var(--accent);
+    }
+
+    .ingredient-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .ingredient-text-box {
+      flex: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    .ingredient-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.35;
+      letter-spacing: -0.2px;
+    }
+
+    .ingredient-title .en-accent {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ========================================================
+       6. Before & After Section
+       ======================================================== */
+    .before-after-section {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 30px 14px 28px 14px;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(29, 53, 87, 0.08);
+    }
+
+    .before-after-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .before-after-tag {
+      display: inline-block;
+      background: rgba(230, 57, 70, 0.1);
+      color: var(--accent);
+      border: 1.5px solid var(--accent);
+      font-size: 14.5px;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .before-after-title {
+      font-size: 22.5px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.35;
+      letter-spacing: -0.3px;
+    }
+
+    /* Dual Header Bar like Reference */
+    .ba-dual-header {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-bottom: 14px;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .ba-head-tab {
+      padding: 10px 8px;
+      text-align: center;
+      font-size: 17px;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: #FFFFFF;
+      text-transform: uppercase;
+    }
+
+    .ba-head-tab.before-tab {
+      background: var(--accent);
+    }
+
+    .ba-head-tab.after-tab {
+      background: var(--primary);
+    }
+
+    /* 2-Column Comparison Grid */
+    .ba-grid-container {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .ba-grid-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+
+    /* Individual Card */
+    .ba-card {
+      background: #FFFFFF;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.2s ease;
+    }
+
+    .ba-card:hover {
+      transform: translateY(-2px);
+    }
+
+    .ba-card.before-card {
+      border: 2px solid var(--accent);
+    }
+
+    .ba-card.after-card {
+      border: 2px solid var(--primary);
+    }
+
+    .ba-card-img-box {
+      width: 100%;
+      height: 155px;
+      overflow: hidden;
+      background: #F4F6F9;
+    }
+
+    .ba-card-img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+      display: block;
+    }
+
+    .ba-card-caption {
+      padding: 12px 10px 16px 10px;
+      font-size: 16.5px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.38;
+      text-align: center;
+      flex-grow: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 76px;
+    }
+
+    /* ========================================================
+       7. Quality & Trust Section
+       ======================================================== */
+    .quality-trust-section {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 26px 14px 34px 14px;
+      position: relative;
+      border-top: 1px solid rgba(29, 53, 87, 0.08);
+    }
+
+    .qt-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .qt-title {
+      font-size: 24px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.3px;
+      margin-bottom: 8px;
+    }
+
+    .qt-title-bar {
+      width: 44px;
+      height: 3.5px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 0 auto;
+    }
+
+    .qt-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      width: 100%;
+    }
+
+    .qt-card {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 20px 8px 18px 8px;
+      box-shadow: 0 6px 20px rgba(29, 53, 87, 0.08);
+      border: 1.5px solid rgba(29, 53, 87, 0.08);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .qt-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(29, 53, 87, 0.12);
+    }
+
+    /* Decorative corner accent brackets matching reference */
+    .qt-card::before {
+      content: "";
+      position: absolute;
+      width: 32px;
+      height: 32px;
+      border: 4px solid transparent;
+      pointer-events: none;
+    }
+
+    .qt-card-1::before {
+      top: 0;
+      left: 0;
+      border-top-color: var(--accent);
+      border-left-color: var(--accent);
+      border-top-left-radius: 20px;
+    }
+
+    .qt-card-2::before {
+      top: 0;
+      right: 0;
+      border-top-color: var(--primary);
+      border-right-color: var(--primary);
+      border-top-right-radius: 20px;
+    }
+
+    .qt-card-3::before {
+      bottom: 0;
+      left: 0;
+      border-bottom-color: var(--primary);
+      border-left-color: var(--primary);
+      border-bottom-left-radius: 20px;
+    }
+
+    .qt-card-4::before {
+      bottom: 0;
+      right: 0;
+      border-bottom-color: var(--accent);
+      border-right-color: var(--accent);
+      border-bottom-right-radius: 20px;
+    }
+
+    .qt-logo-box {
+      width: 100%;
+      height: 118px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 10px;
+      background: #FFFFFF;
+      padding: 2px;
+    }
+
+    .qt-logo-box img {
+      width: auto;
+      height: auto;
+      max-width: 155px;
+      max-height: 112px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .qt-card-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    /* ========================================================
+       Reviews Section (Placed after Order Now)
+       ======================================================== */
+    .reviews-section {
+      width: 100%;
+      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
+      padding: 24px 14px 40px 14px;
+      position: relative;
+    }
+
+    .reviews-header {
+      width: 100%;
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .reviews-main-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.35;
+      letter-spacing: -0.3px;
+      margin-bottom: 6px;
+    }
+
+    .reviews-title-bar {
+      width: 44px;
+      height: 3.5px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 8px auto 12px auto;
+    }
+
+    .reviews-subtitle {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: rgba(29, 53, 87, 0.82);
+      line-height: 1.5;
+      max-width: 410px;
+      text-align: center;
+      margin: -8px auto 20px auto;
+    }
+
+    .parent-reviews-list {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      width: 100%;
+    }
+
+    /* Reference Style Card matching user image */
+    .parent-review-card {
+      background: #FFFFFF;
+      border-radius: 20px;
+      padding: 18px 16px 18px 14px;
+      border: 1.5px solid rgba(29, 53, 87, 0.1);
+      box-shadow: 0 4px 18px rgba(29, 53, 87, 0.08);
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      position: relative;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .parent-review-card:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(29, 53, 87, 0.12);
+    }
+
+    /* Left Avatar Box */
+    .parent-avatar-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      flex-shrink: 0;
+      width: 82px;
+    }
+
+    .parent-avatar-circle {
+      width: 76px;
+      height: 76px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid #FFFFFF;
+      box-shadow: 0 4px 12px rgba(29, 53, 87, 0.15);
+      background: #F4F6F9;
+    }
+
+    .parent-avatar-circle img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .parent-city-pill {
+      margin-top: -12px;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 12.5px;
+      font-weight: 800;
+      padding: 3px 12px;
+      border-radius: 999px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+      z-index: 2;
+      letter-spacing: 0.3px;
+    }
+
+    .parent-city-pill.city-blue {
+      background: var(--primary);
+    }
+
+    /* Right Content Box */
+    .parent-review-content {
+      flex-grow: 1;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .parent-review-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+
+    .parent-name {
+      font-size: 19px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: -0.2px;
+    }
+
+    .parent-stars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+      color: var(--accent);
+    }
+
+    .parent-stars svg {
+      width: 16px;
+      height: 16px;
+      fill: currentColor;
+    }
+
+    .parent-review-highlight {
+      font-size: 14.5px;
+      font-weight: 800;
+      color: var(--primary);
+      margin-bottom: 5px;
+      display: inline-block;
+    }
+
+    .parent-review-quote {
+      font-size: 14px;
+      font-weight: 600;
+      color: rgba(29, 53, 87, 0.88);
+      line-height: 1.45;
+      margin: 0;
+    }
+
+    /* ========================================================
+       9. Order Now Section
+       ======================================================== */
+    .order-section {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 32px 14px 16px 14px;
+      position: relative;
+      border-top: 1px solid rgba(29, 53, 87, 0.08);
+    }
+
+    .order-card {
+      width: 100%;
+      background: #FFFFFF;
+      border-radius: 22px;
+      border: 2px solid rgba(29, 53, 87, 0.12);
+      box-shadow: 0 10px 28px rgba(29, 53, 87, 0.09);
+      overflow: hidden;
+    }
+
+    .order-header-box {
+      background: var(--primary);
+      padding: 22px 16px 20px 16px;
+      text-align: center;
+      position: relative;
+    }
+
+    .order-badge-tag {
+      display: inline-block;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 13.5px;
+      font-weight: 800;
+      padding: 4px 16px;
+      border-radius: 999px;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 12px rgba(230, 57, 70, 0.3);
+    }
+
+    .order-headline {
+      font-size: 20px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.38;
+      letter-spacing: -0.2px;
+    }
+
+    .order-form-body {
+      padding: 22px 18px 24px 18px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .order-field-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .order-field-label {
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--primary);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .order-field-label .required-dot {
+      color: var(--accent);
+      font-size: 14px;
+    }
+
+    .order-input-wrapper {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .order-input-icon {
+      position: absolute;
+      left: 15px;
+      width: 20px;
+      height: 20px;
+      color: rgba(29, 53, 87, 0.45);
+      pointer-events: none;
+      transition: color 0.2s ease;
+    }
+
+    .order-field-input {
+      width: 100%;
+      height: 52px;
+      border-radius: 12px;
+      border: 1.5px solid rgba(29, 53, 87, 0.2);
+      background: #FFFFFF;
+      padding: 0 16px 0 46px;
+      font-size: 15.5px;
+      font-family: inherit;
+      font-weight: 600;
+      color: var(--primary);
+      outline: none;
+      transition: all 0.2s ease;
+    }
+
+    .order-field-input::placeholder {
+      color: rgba(29, 53, 87, 0.45);
+      font-weight: 500;
+      font-size: 14.5px;
+    }
+
+    .order-field-input:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(29, 53, 87, 0.12);
+    }
+
+    .order-field-input:focus ~ .order-input-icon,
+    .order-input-wrapper:focus-within .order-input-icon {
+      color: var(--primary);
+    }
+
+    /* Error Validation State */
+    .order-field-input.is-invalid {
+      border-color: var(--accent) !important;
+      background: rgba(230, 57, 70, 0.04) !important;
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.12) !important;
+    }
+
+    .order-input-wrapper.is-invalid .order-input-icon,
+    .order-field-input.is-invalid ~ .order-input-icon {
+      color: var(--accent) !important;
+    }
+
+    .order-field-error {
+      display: none;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--accent);
+      margin-top: 4px;
+      line-height: 1.35;
+      padding-left: 4px;
+    }
+
+    .order-field-error.show {
+      display: block;
+    }
+
+    .order-submit-btn {
+      width: 100%;
+      height: 56px;
+      border-radius: 14px;
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 19px;
+      font-family: inherit;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      box-shadow: 0 6px 20px rgba(230, 57, 70, 0.35);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      margin-top: 4px;
+    }
+
+    .order-submit-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(230, 57, 70, 0.42);
+    }
+
+    .order-submit-btn:active {
+      transform: translateY(0);
+    }
+
+    .order-submit-btn svg {
+      width: 20px;
+      height: 20px;
+      transition: transform 0.2s ease;
+    }
+
+    .order-submit-btn:hover svg {
+      transform: translateX(4px);
+    }
+
+    .order-trust-footer {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--primary);
+      text-align: center;
+      line-height: 1.4;
+      padding-top: 12px;
+      border-top: 1px dashed rgba(29, 53, 87, 0.15);
+    }
+
+    .order-trust-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    .order-trust-item svg {
+      width: 14px;
+      height: 14px;
+      color: var(--accent);
+      flex-shrink: 0;
+    }
+
+    .order-trust-sep {
+      color: rgba(29, 53, 87, 0.35);
+      font-weight: 900;
+    }
+
+    /* ========================================================
+       Thank You Modal Popup (Order Confirmation)
+       ======================================================== */
+    .thankyou-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(29, 53, 87, 0.68);
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 99999;
+      padding: 18px;
+      opacity: 0;
+      visibility: hidden;
+      transition: opacity 0.25s ease, visibility 0.25s ease;
+    }
+
+    .thankyou-modal-overlay.active {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .thankyou-modal-card {
+      position: relative;
+      background: #FFFFFF;
+      border-radius: 26px;
+      padding: 30px 22px 26px 22px;
+      width: 100%;
+      max-width: 410px;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+      border: 2px solid rgba(29, 53, 87, 0.08);
+      text-align: center;
+      transform: scale(0.92);
+      transition: transform 0.25s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .thankyou-modal-overlay.active .thankyou-modal-card {
+      transform: scale(1);
+    }
+
+    .thankyou-close-btn {
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: rgba(29, 53, 87, 0.06);
+      border: none;
+      font-size: 20px;
+      color: var(--primary);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .thankyou-close-btn:hover {
+      background: rgba(230, 57, 70, 0.12);
+      color: var(--accent);
+      transform: scale(1.08);
+    }
+
+    .thankyou-icon-circle {
+      width: 68px;
+      height: 68px;
+      border-radius: 50%;
+      background: rgba(29, 53, 87, 0.06);
+      border: 2.5px solid var(--primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 14px auto;
+      color: var(--primary);
+    }
+
+    .thankyou-icon-circle svg {
+      width: 32px;
+      height: 32px;
+    }
+
+    .thankyou-badge {
+      display: inline-block;
+      background: rgba(29, 53, 87, 0.08);
+      color: var(--primary);
+      border: 1.5px solid rgba(29, 53, 87, 0.15);
+      font-size: 14px;
+      font-weight: 800;
+      padding: 4px 18px;
+      border-radius: 999px;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+    }
+
+    .thankyou-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.3;
+      margin-bottom: 8px;
+    }
+
+    .thankyou-title .customer-name {
+      color: var(--accent);
+    }
+
+    .thankyou-desc {
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.45;
+      margin-bottom: 18px;
+    }
+
+    .thankyou-details-box {
+      background: #F9FBFC;
+      border: 1.5px solid rgba(29, 53, 87, 0.12);
+      border-radius: 16px;
+      padding: 14px 16px;
+      margin-bottom: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      text-align: left;
+    }
+
+    .thankyou-detail-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 15px;
+    }
+
+    .thankyou-detail-row:not(:last-child) {
+      border-bottom: 1px dashed rgba(29, 53, 87, 0.14);
+      padding-bottom: 9px;
+    }
+
+    .detail-label {
+      color: rgba(29, 53, 87, 0.7);
+      font-weight: 600;
+    }
+
+    .detail-value {
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .detail-value.order-id {
+      letter-spacing: 0.5px;
+    }
+
+    .detail-value.delivery-status {
+      color: var(--primary);
+      font-weight: 900;
+    }
+
+    .thankyou-note {
+      font-size: 13.5px;
+      font-weight: 600;
+      color: rgba(29, 53, 87, 0.75);
+      line-height: 1.45;
+      margin-bottom: 20px;
+    }
+
+    .thankyou-action-btn {
+      width: 100%;
+      padding: 14px 20px;
+      background: var(--primary);
+      color: #FFFFFF;
+      font-size: 17.5px;
+      font-family: inherit;
+      font-weight: 800;
+      border: none;
+      border-radius: 14px;
+      cursor: pointer;
+      box-shadow: 0 4px 16px rgba(29, 53, 87, 0.25);
+      transition: background 0.15s ease, transform 0.15s ease;
+    }
+
+    .thankyou-action-btn:hover {
+      background: #152741;
+      transform: translateY(-2px);
+    }
+
+    /* Mobile adjustments */
+    @media (max-width: 380px) {
+      .section-title {
+        font-size: 19px;
+      }
+      .arch-image-wrap {
+        width: 105px;
+        height: 126px;
+        border-radius: 56px 56px 14px 14px;
+      }
+      .card-title-text {
+        font-size: 17.5px;
+      }
+      .alert-text {
+        font-size: 16.5px;
+      }
+      .product-main-title {
+        font-size: 19.5px;
+      }
+      .product-badge-pill {
+        font-size: 14.5px;
+        padding: 5px 14px;
+      }
+      .product-bottle-box {
+        max-width: 165px;
+      }
+      .feature-text {
+        font-size: 14px;
+      }
+      .feature-pill-card {
+        padding: 8px 9px;
+        gap: 7px;
+      }
+      .feature-icon-box {
+        width: 28px;
+        height: 28px;
+      }
+      .feature-icon-box svg {
+        width: 15px;
+        height: 15px;
+      }
+      .aspects-main-title {
+        font-size: 19px;
+      }
+      .aspect-card-title {
+        font-size: 18px;
+      }
+      .aspect-card-desc {
+        font-size: 15px;
+      }
+      .aspect-card-img-box {
+        height: 175px;
+      }
+      .aspect-card-body {
+        padding: 15px 16px 18px 16px;
+      }
+      .ingredients-main-title {
+        font-size: 20px;
+      }
+      .ingredient-title {
+        font-size: 20px;
+      }
+      .ingredient-photo-frame {
+        width: 108px;
+        height: 108px;
+        border-radius: 46px 16px 16px 46px;
+      }
+      .ingredient-card.reverse-card .ingredient-photo-frame {
+        border-radius: 16px 46px 46px 16px;
+      }
+      .before-after-title {
+        font-size: 20px;
+      }
+      .ba-card-caption {
+        font-size: 15px;
+        min-height: 70px;
+      }
+    }
+
+    /* ========================================================
+       10. FAQs Section
+       ======================================================== */
+    .faq-section {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 34px 14px 38px 14px;
+      position: relative;
+      border-top: 1px solid rgba(29, 53, 87, 0.08);
+    }
+
+    .faq-header {
+      text-align: center;
+      margin-bottom: 22px;
+    }
+
+    .faq-title {
+      font-size: 23px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.35;
+      margin-bottom: 6px;
+    }
+
+    .faq-title-bar {
+      width: 44px;
+      height: 3.5px;
+      background: var(--accent);
+      border-radius: 999px;
+      margin: 8px auto 12px auto;
+    }
+
+    .faq-subtitle {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: rgba(29, 53, 87, 0.82);
+      line-height: 1.5;
+      max-width: 410px;
+      text-align: center;
+      margin: -8px auto 20px auto;
+    }
+
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: 13px;
+      width: 100%;
+    }
+
+    .faq-item {
+      background: #FFFFFF;
+      border: 2px solid var(--primary);
+      border-radius: 16px;
+      box-shadow: 0 4px 14px rgba(29, 53, 87, 0.12);
+      overflow: hidden;
+      transition: all 0.25s ease;
+    }
+
+    .faq-item.active {
+      box-shadow: 0 8px 24px rgba(29, 53, 87, 0.18);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: var(--primary);
+      border: none;
+      padding: 16px 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      text-align: left;
+      cursor: pointer;
+      font-size: 15.5px;
+      font-weight: 800;
+      color: #FFFFFF;
+      line-height: 1.4;
+      font-family: inherit;
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--primary);
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+      transition: transform 0.25s ease, background 0.25s ease, color 0.25s ease;
+    }
+
+    .faq-item.active .faq-icon {
+      transform: rotate(180deg);
+      background: var(--accent);
+      color: #FFFFFF;
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s cubic-bezier(0, 1, 0, 1), padding 0.3s ease;
+      padding: 0 16px;
+      background: #FFFFFF;
+    }
+
+    .faq-item.active .faq-answer {
+      max-height: 350px;
+      padding: 15px 16px 18px 16px;
+      border-top: 1.5px solid rgba(29, 53, 87, 0.12);
+    }
+
+    .faq-answer p {
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--primary);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    /* ========================================================
+       11. Disclaimer Section & Footer
+       ======================================================== */
+    .disclaimer-section {
+      width: 100%;
+      background: #FFFFFF;
+      padding: 14px 16px 18px 16px;
+      border-top: 1px solid rgba(29, 53, 87, 0.06);
+    }
+
+    .disclaimer-box {
+      background: transparent;
+      border: none;
+      padding: 0;
+      text-align: justify;
+    }
+
+    .disclaimer-text {
+      font-size: 11.5px;
+      font-weight: 500;
+      color: rgba(29, 53, 87, 0.45);
+      line-height: 1.55;
+      margin: 0;
+    }
+
+    .disclaimer-label {
+      font-weight: 700;
+      color: rgba(29, 53, 87, 0.55);
+      margin-right: 4px;
+    }
+
+    .page-footer {
+      width: 100%;
+      background: var(--primary);
+      color: #FFFFFF;
+      text-align: center;
+      padding: 20px 14px;
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.5;
+      letter-spacing: 0.2px;
+    }
+  </style>
+</head>
+<body>
+
+  <main class="landing-wrapper">
+    <!-- 1st Section: Main Hero Banner -->
+    <section class="banner-section">
+      <img 
+        class="banner-img" 
+        src="banner.jpg" 
+        alt="बच्चा तो कोशिश बहुत करता है... लेकिन उसका शरीर उसका साथ नहीं दे पाता!"
+        loading="eager"
+      >
+    </section>
+
+    <!-- 2nd Section: Symptoms with Arch Image Cards -->
+    <section class="symptoms-section">
+      <!-- Section Title -->
+      <div class="section-title-wrap">
+        <h2 class="section-title">
+          क्या आप भी अपने बच्चे में ये बदलाव देख रहे हैं?
+        </h2>
+      </div>
+
+      <div class="symptoms-container">
+
+        <!-- Card 1: बार-बार लार टपकना। -->
+        <div class="symptom-card">
+          <div class="arch-image-wrap">
+            <img src="images/images.jpg" alt="बार-बार लार टपकना">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">बार-बार लार टपकना।</p>
+          </div>
+        </div>
+
+        <!-- Arrow Down -->
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+
+        <!-- Card 2: गर्दन को सीधा रखने में परेशानी। -->
+        <div class="symptom-card alt-card">
+          <div class="arch-image-wrap">
+            <img src="images/young-boy-holding-his-neck-in-pain.webp" alt="गर्दन को सीधा रखने में परेशानी">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">गर्दन को सीधा रखने में परेशानी।</p>
+          </div>
+        </div>
+
+        <!-- Arrow Down -->
+        <div class="card-arrow alt-arrow">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+
+        <!-- Card 3: चलने-फिरने में कठिनाई। -->
+        <div class="symptom-card">
+          <div class="arch-image-wrap">
+            <img src="images/images (1).jpg" alt="चलने-फिरने में कठिनाई">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">चलने-फिरने में कठिनाई।</p>
+          </div>
+        </div>
+
+        <!-- Arrow Down -->
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+
+        <!-- Card 4: मांसपेशियों में कमजोरी महसूस होना। -->
+        <div class="symptom-card alt-card">
+          <div class="arch-image-wrap">
+            <img src="images/images (2).jpg" alt="मांसपेशियों में कमजोरी महसूस होना">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">मांसपेशियों में कमजोरी महसूस होना।</p>
+          </div>
+        </div>
+
+        <!-- Arrow Down -->
+        <div class="card-arrow alt-arrow">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+
+        <!-- Card 5: शरीर में अकड़न या जकड़न। -->
+        <div class="symptom-card">
+          <div class="arch-image-wrap">
+            <img src="images/images (3).jpg" alt="शरीर में अकड़न या जकड़न">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">शरीर में अकड़न या जकड़न।</p>
+          </div>
+        </div>
+
+        <!-- Arrow Down -->
+        <div class="card-arrow">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <polyline points="19 12 12 19 5 12"></polyline>
+          </svg>
+        </div>
+
+        <!-- Card 6: ध्यान लगाने और नई बातें सीखने में परेशानी। -->
+        <div class="symptom-card alt-card">
+          <div class="arch-image-wrap">
+            <img src="images/images (5).jpg" style="object-position: 30% center;" alt="ध्यान लगाने और नई बातें सीखने में परेशानी">
+          </div>
+          <div class="card-text-col">
+            <p class="card-title-text">ध्यान लगाने और नई बातें सीखने में परेशानी।</p>
+          </div>
+        </div>
+
+        <!-- Concluding Advice Note -->
+        <div class="symptoms-alert-box">
+          <div class="alert-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"></path>
+              <line x1="12" y1="9" x2="12" y2="13"></line>
+              <line x1="12" y1="17" x2="12.01" y2="17"></line>
+            </svg>
+          </div>
+          <p class="alert-text">बच्चे के विकास से जुड़ी छोटी-छोटी बातों को भी नज़रअंदाज़ न करें।</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 3rd Section: Product Showcase (Designed matching reference image) -->
+    <section class="product-showcase-section">
+      <!-- Main Title -->
+      <div class="section-header-banner">
+        <h2 class="section-header-banner-title">
+          बच्चे की Mental Wellness और Daily Care के लिए Neuro Mantra Syrup
+        </h2>
+      </div>
+
+      <!-- Sub-badge Pill -->
+      <div class="product-badge-wrap">
+        <div class="product-badge-pill">
+          Neuro Mantra Syrup की खास बातें:
+        </div>
+      </div>
+
+      <!-- Showcase Row: Bottle on Left + Features on Right -->
+      <div class="product-showcase-row">
+        <!-- Left: Product Bottle -->
+        <div class="product-bottle-col">
+          <div class="product-bottle-box">
+            <img src="images/product image.jpeg" alt="Neuro Mantra Syrup Bottle">
+          </div>
+        </div>
+
+        <!-- Right: Feature Pill Cards -->
+        <div class="product-features-col">
+          <!-- Feature 1 -->
+          <div class="feature-pill-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"></path>
+              </svg>
+            </div>
+            <p class="feature-text">Herbal Ingredients</p>
+          </div>
+
+          <!-- Feature 2 -->
+          <div class="feature-pill-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                <polyline points="22 4 12 14.01 9 11.01"></polyline>
+              </svg>
+            </div>
+            <p class="feature-text">आसान सेवन</p>
+          </div>
+
+          <!-- Feature 3 -->
+          <div class="feature-pill-card">
+            <div class="feature-icon-box">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M10 2v7.31"></path>
+                <path d="M14 2v7.31"></path>
+                <path d="M8.5 2h7"></path>
+                <path d="M14 9.3a6.5 6.5 0 1 1-4 0"></path>
+                <path d="M5.52 16h12.96"></path>
+              </svg>
+            </div>
+            <p class="feature-text">Herbal Formulation</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4th Section: 4 Aspects of Mental Wellness (Vertical Photo Cards like reference) -->
+    <section class="aspects-section">
+      <!-- Section Title Box -->
+      <div class="aspects-header-box">
+        <h2 class="aspects-main-title">
+          बेहतर मानसिक देखभाल के चार महत्वपूर्ण पहलू
+        </h2>
+      </div>
+
+      <!-- Cards Stack -->
+      <div class="aspects-cards-list">
+
+        <!-- Card 01: Focus Support -->
+        <div class="aspect-showcase-card">
+          <div class="aspect-card-img-box">
+            <img src="images/images (6).jpg" alt="Focus Support">
+          </div>
+          <div class="aspect-card-body">
+            <div class="aspect-title-row">
+              <span class="aspect-leaf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
+                </svg>
+              </span>
+              <h3 class="aspect-card-title">01 — Focus Support</h3>
+            </div>
+            <p class="aspect-card-desc">
+              बच्चों की Focus और Concentration से जुड़ी ज़रूरतों के लिए।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 02: Memory Support -->
+        <div class="aspect-showcase-card">
+          <div class="aspect-card-img-box">
+            <img src="images/images (7).jpg" alt="Memory Support">
+          </div>
+          <div class="aspect-card-body">
+            <div class="aspect-title-row">
+              <span class="aspect-leaf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
+                </svg>
+              </span>
+              <h3 class="aspect-card-title">02 — Memory Support</h3>
+            </div>
+            <p class="aspect-card-desc">
+              Memory Care और Learning से जुड़े पहलुओं के लिए।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 03: Nervous System Support -->
+        <div class="aspect-showcase-card">
+          <div class="aspect-card-img-box">
+            <img src="images/images (8).jpg" style="object-position: center 30%;" alt="Nervous System Support">
+          </div>
+          <div class="aspect-card-body">
+            <div class="aspect-title-row">
+              <span class="aspect-leaf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
+                </svg>
+              </span>
+              <h3 class="aspect-card-title">03 — Nervous System Support</h3>
+            </div>
+            <p class="aspect-card-desc">
+              दिमाग़ और शरीर के बीच संदेश पहुँचाने वाली Nerves की सेहत का ख्याल रखने के लिए।
+            </p>
+          </div>
+        </div>
+
+        <!-- Card 04: Brain-Body Connection Support -->
+        <div class="aspect-showcase-card">
+          <div class="aspect-card-img-box">
+            <img src="images/images (9).jpg" alt="Brain-Body Connection Support">
+          </div>
+          <div class="aspect-card-body">
+            <div class="aspect-title-row">
+              <span class="aspect-leaf-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
+                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
+                </svg>
+              </span>
+              <h3 class="aspect-card-title">04 — Brain-Body Connection Support</h3>
+            </div>
+            <p class="aspect-card-desc">
+              दिमाग़ और शरीर के बीच संदेश पहुँचाने वाली Nerves की सेहत का ख्याल रखने के लिए।
+            </p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 5th Section: Herbal Ingredients (Alternating Left & Right) -->
+    <section class="ingredients-section">
+      <!-- Section Title Box -->
+      <div class="ingredients-header-box">
+        <h2 class="ingredients-main-title">
+          चुनिंदा Herbal Ingredients की जानकारी
+        </h2>
+      </div>
+
+      <!-- Alternating Cards List -->
+      <div class="ingredients-cards-list">
+
+        <!-- Item 1: Brahmi (Left Image, Right Text) -->
+        <div class="ingredient-card">
+          <div class="ingredient-photo-frame">
+            <img src="images/images (10).jpg" alt="ब्राह्मी (Brahmi)">
+          </div>
+          <div class="ingredient-text-box">
+            <h3 class="ingredient-title">
+              1.ब्राह्मी <span class="en-accent">(Brahmi)</span>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Item 2: Shankhpushpi (Right Image, Left Text) -->
+        <div class="ingredient-card reverse-card">
+          <div class="ingredient-photo-frame">
+            <img src="images/images (11).jpg" alt="शंखपुष्पी (Shankhpushpi)">
+          </div>
+          <div class="ingredient-text-box">
+            <h3 class="ingredient-title">
+              2.शंखपुष्पी <span class="en-accent">(Shankhpushpi)</span>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Item 3: Jatamansi (Left Image, Right Text) -->
+        <div class="ingredient-card">
+          <div class="ingredient-photo-frame">
+            <img src="images/images (12).jpg" alt="जटामांसी (Jatamansi)">
+          </div>
+          <div class="ingredient-text-box">
+            <h3 class="ingredient-title">
+              3.जटामांसी <span class="en-accent">(Jatamansi)</span>
+            </h3>
+          </div>
+        </div>
+
+        <!-- Item 4: Vacha (Right Image, Left Text) -->
+        <div class="ingredient-card reverse-card">
+          <div class="ingredient-photo-frame">
+            <img src="images/images (13).jpg" alt="वच (Vacha)">
+          </div>
+          <div class="ingredient-text-box">
+            <h3 class="ingredient-title">
+              4.वच <span class="en-accent">(Vacha)</span>
+            </h3>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 6th Section: Before & After (Side-by-Side Reference Style) -->
+    <section class="before-after-section">
+      <!-- Header -->
+      <div class="section-header-banner">
+        <h2 class="section-header-banner-title">
+          बच्चे की हर छोटी प्रगति है खास! (Before & After)
+        </h2>
+      </div>
+
+      <!-- Dual Header Bar (BEFORE / AFTER) -->
+      <div class="ba-dual-header">
+        <div class="ba-head-tab before-tab">BEFORE</div>
+        <div class="ba-head-tab after-tab">AFTER</div>
+      </div>
+
+      <!-- 2-Column Side-by-Side Comparison Grid -->
+      <div class="ba-grid-container">
+
+        <!-- Row 1: Focus, Memory & Learning -->
+        <div class="ba-grid-row">
+          <div class="ba-card before-card">
+            <div class="ba-card-img-box">
+              <img src="images/ba-focus-before.jpg" alt="पढ़ाई और ध्यान लगाने में कठिनाई व चिड़चिड़ापन">
+            </div>
+            <div class="ba-card-caption">
+              पढ़ाई और ध्यान लगाने में कठिनाई व बार-बार चिड़चिड़ापन
+            </div>
+          </div>
+          <div class="ba-card after-card">
+            <div class="ba-card-img-box">
+              <img src="images/ba-focus-after.jpg" alt="बेहतर Focus और नई बातें सीखने में रुचि">
+            </div>
+            <div class="ba-card-caption">
+              बेहतर Focus, नई बातें सीखने में रुचि और शांत स्वभाव
+            </div>
+          </div>
+        </div>
+
+        <!-- Row 2: Physical Mobility, Nerves & Active Energy -->
+        <div class="ba-grid-row">
+          <div class="ba-card before-card">
+            <div class="ba-card-img-box">
+              <img src="images/ba-walk-before.jpg" alt="मांसपेशियों में कमजोरी व चलने में असंतुलन">
+            </div>
+            <div class="ba-card-caption">
+              मांसपेशियों में कमजोरी, चलने में असंतुलन व सुस्ती
+            </div>
+          </div>
+          <div class="ba-card after-card">
+            <div class="ba-card-img-box">
+              <img src="images/ba-walk-after.jpg" alt="आत्मविश्वास से चलना-दौड़ना व शारीरिक स्फूर्ति">
+            </div>
+            <div class="ba-card-caption">
+              आत्मविश्वास से चलना-दौड़ना, शारीरिक स्फूर्ति व मुस्कान
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- 7th Section: Quality & Trust -->
+    <section class="quality-trust-section">
+      <div class="section-header-banner">
+        <h2 class="section-header-banner-title">Quality & Trust</h2>
+      </div>
+
+      <div class="qt-grid">
+        <!-- 1. GMP -->
+        <div class="qt-card qt-card-1">
+          <div class="qt-logo-box">
+            <img src="images/cert-gmp.png" alt="GMP">
+          </div>
+          <h3 class="qt-card-title">GMP</h3>
+        </div>
+
+        <!-- 2. ISO -->
+        <div class="qt-card qt-card-2">
+          <div class="qt-logo-box">
+            <img src="images/cert-iso.png" alt="ISO">
+          </div>
+          <h3 class="qt-card-title">ISO</h3>
+        </div>
+
+        <!-- 3. FSSAI -->
+        <div class="qt-card qt-card-3">
+          <div class="qt-logo-box">
+            <img src="images/cert-fssai.png" alt="FSSAI">
+          </div>
+          <h3 class="qt-card-title">FSSAI</h3>
+        </div>
+
+        <!-- 4. Quality Tested -->
+        <div class="qt-card qt-card-4">
+          <div class="qt-logo-box">
+            <img src="images/cert-tested.png" alt="Quality Tested">
+          </div>
+          <h3 class="qt-card-title">Quality Tested</h3>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8th Section: Order Now -->
+    <section class="order-section" id="order-now">
+      <div class="order-card">
+        <!-- Header -->
+        <div class="order-header-box">
+          <span class="order-badge-tag">Order Now</span>
+          <h2 class="order-headline">
+            अपने बच्चे की देखभाल के लिए Neuro Mantra की जानकारी प्राप्त करें
+          </h2>
+        </div>
+
+        <!-- Form Body -->
+        <form class="order-form-body" id="orderForm" novalidate>
+          <!-- Field 1: Name -->
+          <div class="order-field-group">
+            <label class="order-field-label" for="user-name">
+              आपका नाम <span class="required-dot">*</span>
+            </label>
+            <div class="order-input-wrapper" id="nameWrapper">
+              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+              </svg>
+              <input 
+                type="text" 
+                id="user-name" 
+                name="name" 
+                class="order-field-input" 
+                placeholder="अपना पूरा नाम दर्ज करें" 
+                autocomplete="name"
+              >
+            </div>
+            <div class="order-field-error" id="nameError">कृपया अपना नाम दर्ज करें</div>
+          </div>
+
+          <!-- Field 2: Mobile Number -->
+          <div class="order-field-group">
+            <label class="order-field-label" for="user-phone">
+              मोबाइल नंबर <span class="required-dot">*</span>
+            </label>
+            <div class="order-input-wrapper" id="phoneWrapper">
+              <svg class="order-input-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+              </svg>
+              <input 
+                type="tel" 
+                id="user-phone" 
+                name="phone" 
+                class="order-field-input" 
+                placeholder="अपना 10 अंकों का मोबाइल नंबर दर्ज करें" 
+                maxlength="10" 
+                autocomplete="tel"
+              >
+            </div>
+            <div class="order-field-error" id="phoneError">10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)</div>
+          </div>
+
+          <!-- CTA Button -->
+          <button type="submit" class="order-submit-btn">
+            <span>अभी जानकारी प्राप्त करें</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+              <polyline points="12 5 19 12 12 19"></polyline>
+            </svg>
+          </button>
+
+          <!-- Trust Badges Footer -->
+          <div class="order-trust-footer">
+            <span class="order-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+              </svg>
+              Secure Order
+            </span>
+            <span class="order-trust-sep">&middot;</span>
+            <span class="order-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+              </svg>
+              Product Information
+            </span>
+            <span class="order-trust-sep">&middot;</span>
+            <span class="order-trust-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="1" y="3" width="15" height="13"></rect>
+                <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+                <circle cx="5.5" cy="18.5" r="2.5"></circle>
+                <circle cx="18.5" cy="18.5" r="2.5"></circle>
+              </svg>
+              Delivery Details
+            </span>
+          </div>
+        </form>
+      </div>
+    </section>
+
+    <!-- 9th Section: Reviews (Placed after Order Now) -->
+    <section class="reviews-section" id="reviews">
+      <div class="section-header-banner">
+        <h2 class="section-header-banner-title">
+          माता-पिता के अनुभव, उनकी अपनी ज़ुबानी
+        </h2>
+      </div>
+      <p class="reviews-subtitle">
+        Neuro Mantra के बारे में ग्राहकों की वास्तविक प्रतिक्रियाएँ और अनुभव जानें।
+      </p>
+
+      <div class="parent-reviews-list">
+        <!-- Review 1 -->
+        <div class="parent-review-card">
+          <div class="parent-avatar-box">
+            <div class="parent-avatar-circle">
+              <img src="images/review-user-1.png" alt="रमेश शर्मा" loading="lazy">
+            </div>
+            <span class="parent-city-pill">जयपुर</span>
+          </div>
+          <div class="parent-review-content">
+            <div class="parent-review-top">
+              <h4 class="parent-name">रमेश शर्मा</h4>
+              <div class="parent-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <p class="parent-review-quote">
+              Neuro Mantra Syrup शुरू करने के कुछ हफ्तों बाद ही बच्चे में सकारात्मक बदलाव दिखने लगे। अब वह चीज़ों पर बेहतर ध्यान लगा पा रहा है और चिड़चिड़ापन काफी कम हो गया है।
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="parent-review-card">
+          <div class="parent-avatar-box">
+            <div class="parent-avatar-circle">
+              <img src="images/review-user-2.png" alt="सुरेश वर्मा" loading="lazy">
+            </div>
+            <span class="parent-city-pill city-blue">भोपाल</span>
+          </div>
+          <div class="parent-review-content">
+            <div class="parent-review-top">
+              <h4 class="parent-name">सुरेश वर्मा</h4>
+              <div class="parent-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <p class="parent-review-quote">
+              इसका स्वाद बहुत अच्छा है इसलिए बच्चा बिना किसी परेशानी के रोज़ इसे ले लेता है। चलने-फिरने में शारीरिक संतुलन और एक्टिवनेस में बहुत सुधार आया है।
+            </p>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="parent-review-card">
+          <div class="parent-avatar-box">
+            <div class="parent-avatar-circle">
+              <img src="images/review-user-3.png" alt="मीना गुप्ता" loading="lazy">
+            </div>
+            <span class="parent-city-pill">दिल्ली</span>
+          </div>
+          <div class="parent-review-content">
+            <div class="parent-review-top">
+              <h4 class="parent-name">मीना गुप्ता</h4>
+              <div class="parent-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+            </div>
+            <p class="parent-review-quote">
+              पूरी तरह प्राकृतिक और सुरक्षित आयुर्वेदिक फॉर्मूलेशन है। कोई साइड इफ़ेक्ट नहीं हुआ और पैकेजिंग भी बहुत अच्छी है। इस प्रोडक्ट की क्वालिटी पर हमें पूरा भरोसा है।
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10th Section: FAQs -->
+    <section class="faq-section" id="faqs">
+      <div class="section-header-banner">
+        <h2 class="section-header-banner-title">
+          अक्सर पूछे जाने वाले सवाल (FAQs)
+        </h2>
+      </div>
+      <p class="faq-subtitle">
+        Neuro Mantra Syrup से जुड़े आपके सभी सवालों के स्पष्ट जवाब
+      </p>
+
+      <div class="faq-list">
+        <!-- FAQ 1 -->
+        <div class="faq-item active">
+          <button class="faq-question" type="button" aria-expanded="true">
+            <span>1. Neuro Mantra Syrup क्या है?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>Neuro Mantra, SP Herbal Life का Syrup है। ye Focus & Concentration Support, Memory Care और Nerve Health ko support karta है।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>2. क्या Neuro Mantra बच्चों के लिए इस्तेमाल किया जा सकता है?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>बच्चे की उम्र और स्वास्थ्य स्थिति के अनुसार इसकी उपयुक्तता बाल रोग विशेषज्ञ से सुनिश्चित करें।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 3 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>3. क्या यह Brain Development में मदद करता है?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>बच्चे का Brain Development कई कारकों पर निर्भर करता है। किसी Product से Brain Development बेहतर होने का दावा प्रमाणों के आधार पर ही किया जाना चाहिए।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>4. क्या यह चलने, बोलने या मांसपेशियों की कमजोरी में मदद करता है?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>इन समस्याओं के कई कारण हो सकते हैं। सही जाँच और विशेषज्ञ द्वारा निर्धारित उपचार ज़रूरी है। Neuro Mantra को इसका विकल्प नहीं मानना चाहिए।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>5. Neuro Mantra Syrup का इस्तेमाल कैसे करें?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>Product Label पर दिए गए निर्देशों और बाल रोग विशेषज्ञ की सलाह के अनुसार ही इस्तेमाल करें।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>6. कितने समय में परिणाम दिखाई देते हैं?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>परिणामों के लिए कोई निश्चित समय बताना उचित नहीं है। किसी भी लाभ की पुष्टि उपलब्ध प्रमाणों के आधार पर होनी चाहिए।</p>
+          </div>
+        </div>
+
+        <!-- FAQ 7 -->
+        <div class="faq-item">
+          <button class="faq-question" type="button" aria-expanded="false">
+            <span>7. क्या Cash on Delivery उपलब्ध है?</span>
+            <span class="faq-icon">
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="6 9 12 15 18 9"></polyline>
+              </svg>
+            </span>
+          </button>
+          <div class="faq-answer">
+            <p>जहाँ सुविधा उपलब्ध है, वहाँ Cash on Delivery का विकल्प चुना जा सकता है।</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11th Section: Disclaimer (Discreet Footnote) -->
+    <section class="disclaimer-section" id="disclaimer">
+      <div class="disclaimer-box">
+        <p class="disclaimer-text">
+          <strong class="disclaimer-label">Disclaimer:</strong> बच्चों के मानसिक और शारीरिक विकास में देरी, चलने-फिरने में परेशानी, मांसपेशियों की कमजोरी और अन्य न्यूरोलॉजिकल लक्षणों के कई कारण हो सकते हैं। Neuro Mantra Syrup चिकित्सकीय जाँच, निदान, निर्धारित उपचार या थेरेपी का विकल्प नहीं है। बच्चों को कोई भी Product देने से पहले बाल रोग विशेषज्ञ से सलाह लें। Product से जुड़े सभी लाभ और दावे प्रमाणित जानकारी के अनुरूप ही होने चाहिए।
+        </p>
+      </div>
+    </section>
+
+    <!-- Page Footer -->
+    <footer class="page-footer">
+      <p style="margin: 0; font-size: 13.5px; font-weight: 700;">
+        &copy; 2026 SP Herbal Life &middot; Neuro Mantra Syrup
+      </p>
+      <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.85;">
+        समर्पित बच्चों की बेहतर मानसिक व शारीरिक देखभाल
+      </p>
+    </footer>
+  </main>
+
+  <!-- Thank You / Order Confirmation Modal -->
+  <div class="thankyou-modal-overlay" id="thankyouModal" role="dialog" aria-modal="true">
+    <div class="thankyou-modal-card">
+      <!-- Close Button -->
+      <button class="thankyou-close-btn" id="closeModalBtn" aria-label="Close">&times;</button>
+      
+      <!-- Success Icon Circle -->
+      <div class="thankyou-icon-circle">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="20 6 9 17 4 12"></polyline>
+        </svg>
+      </div>
+
+      <!-- Badge -->
+      <div class="thankyou-badge">Order Confirmed!</div>
+
+      <!-- Main Headline -->
+      <h3 class="thankyou-title">बधाई हो, <span class="customer-name" id="modalCustomerName"></span>!</h3>
+
+      <!-- Subtitle -->
+      <p class="thankyou-desc">
+        आपके लिए <strong>Neuro Mantra</strong> का ऑर्डर सफलतापूर्वक स्वीकार कर लिया गया है।
+      </p>
+
+      <!-- Details Box -->
+      <div class="thankyou-details-box">
+        <div class="thankyou-detail-row">
+          <span class="detail-label">Order ID:</span>
+          <span class="detail-value order-id" id="modalOrderId">NM-532370</span>
+        </div>
+        <div class="thankyou-detail-row">
+          <span class="detail-label">Mobile:</span>
+          <span class="detail-value" id="modalCustomerPhone">+91 9001050074</span>
+        </div>
+        <div class="thankyou-detail-row">
+          <span class="detail-label">Delivery:</span>
+          <span class="detail-value delivery-status">FREE Express Delivery</span>
+        </div>
+      </div>
+
+      <!-- Note -->
+      <p class="thankyou-note">
+        हमारे विशेषज्ञ जल्द ही डिलीवरी कन्फर्मेशन के लिए आपसे संपर्क करेंगे।
+      </p>
+
+      <!-- Action Button -->
+      <button class="thankyou-action-btn" id="modalActionBtn">
+        धन्यवाद, ठीक है
+      </button>
+    </div>
+  </div>
+
+  <!-- Form Validation & Modal Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.getElementById('orderForm');
+      const nameInput = document.getElementById('user-name');
+      const phoneInput = document.getElementById('user-phone');
+      const nameWrapper = document.getElementById('nameWrapper');
+      const phoneWrapper = document.getElementById('phoneWrapper');
+      const nameError = document.getElementById('nameError');
+      const phoneError = document.getElementById('phoneError');
+
+      const modal = document.getElementById('thankyouModal');
+      const closeModalBtn = document.getElementById('closeModalBtn');
+      const modalActionBtn = document.getElementById('modalActionBtn');
+      const modalCustomerName = document.getElementById('modalCustomerName');
+      const modalCustomerPhone = document.getElementById('modalCustomerPhone');
+      const modalOrderId = document.getElementById('modalOrderId');
+
+      // Validation helper for Name
+      function validateName(showEmptyError = true) {
+        const val = nameInput.value.trim();
+        if (!val) {
+          if (showEmptyError) {
+            nameInput.classList.add('is-invalid');
+            nameWrapper.classList.add('is-invalid');
+            nameError.textContent = 'कृपया अपना नाम दर्ज करें';
+            nameError.classList.add('show');
+          } else {
+            nameInput.classList.remove('is-invalid');
+            nameWrapper.classList.remove('is-invalid');
+            nameError.classList.remove('show');
+          }
+          return false;
+        }
+
+        // Check if input contains digits or invalid characters (allow English, Hindi letters, spaces, dots)
+        const lettersOnlyRegex = /^[\u0900-\u097Fa-zA-Z\s.'-]+$/;
+        if (/\d/.test(val) || !lettersOnlyRegex.test(val)) {
+          nameInput.classList.add('is-invalid');
+          nameWrapper.classList.add('is-invalid');
+          nameError.textContent = 'कृपया केवल अक्षरों में नाम लिखें';
+          nameError.classList.add('show');
+          return false;
+        }
+
+        if (val.length < 2) {
+          nameInput.classList.add('is-invalid');
+          nameWrapper.classList.add('is-invalid');
+          nameError.textContent = 'कृपया केवल अक्षरों में नाम लिखें';
+          nameError.classList.add('show');
+          return false;
+        }
+
+        nameInput.classList.remove('is-invalid');
+        nameWrapper.classList.remove('is-invalid');
+        nameError.classList.remove('show');
+        return true;
+      }
+
+      // Validation helper for Phone
+      function validatePhone(showEmptyError = true) {
+        const val = phoneInput.value.trim();
+        if (!val) {
+          if (showEmptyError) {
+            phoneInput.classList.add('is-invalid');
+            phoneWrapper.classList.add('is-invalid');
+            phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
+            phoneError.classList.add('show');
+          } else {
+            phoneInput.classList.remove('is-invalid');
+            phoneWrapper.classList.remove('is-invalid');
+            phoneError.classList.remove('show');
+          }
+          return false;
+        }
+
+        if (!/^[6-9]\d{9}$/.test(val)) {
+          phoneInput.classList.add('is-invalid');
+          phoneWrapper.classList.add('is-invalid');
+          phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
+          phoneError.classList.add('show');
+          return false;
+        }
+
+        phoneInput.classList.remove('is-invalid');
+        phoneWrapper.classList.remove('is-invalid');
+        phoneError.classList.remove('show');
+        return true;
+      }
+
+      // Live validation as user types
+      nameInput.addEventListener('input', function () {
+        if (nameInput.value.trim().length > 0) {
+          validateName(true);
+        } else {
+          nameInput.classList.remove('is-invalid');
+          nameWrapper.classList.remove('is-invalid');
+          nameError.classList.remove('show');
+        }
+      });
+
+      phoneInput.addEventListener('input', function () {
+        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
+        const val = phoneInput.value.trim();
+        if (val.length === 10) {
+          validatePhone(true);
+        } else if (val.length > 0 && !/^[6-9]/.test(val)) {
+          phoneInput.classList.add('is-invalid');
+          phoneWrapper.classList.add('is-invalid');
+          phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
+          phoneError.classList.add('show');
+        } else {
+          phoneInput.classList.remove('is-invalid');
+          phoneWrapper.classList.remove('is-invalid');
+          phoneError.classList.remove('show');
+        }
+      });
+
+      // Submit Validation
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        const isNameValid = validateName(true);
+        const isPhoneValid = validatePhone(true);
+
+        if (!isNameValid || !isPhoneValid) return;
+
+        const nameVal = nameInput.value.trim();
+        const phoneVal = phoneInput.value.trim();
+
+        // Generate Random 6-digit Order ID (e.g. NM-583219)
+        const randomNum = Math.floor(100000 + Math.random() * 900000);
+        const orderId = 'NM-' + randomNum;
+
+        // Populate Modal Fields
+        modalCustomerName.textContent = nameVal;
+        modalCustomerPhone.textContent = '+91 ' + phoneVal;
+        modalOrderId.textContent = orderId;
+
+        // Open Modal
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden';
+
+        // Reset form inputs
+        form.reset();
+      });
+
+      // Close Modal Handler
+      function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+
+      closeModalBtn.addEventListener('click', closeModal);
+      modalActionBtn.addEventListener('click', closeModal);
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) {
+          closeModal();
+        }
+      });
+
+      // FAQs Accordion functionality
+      const faqQuestions = document.querySelectorAll('.faq-question');
+      faqQuestions.forEach(btn => {
+        btn.addEventListener('click', function () {
+          const item = this.parentElement;
+          const isActive = item.classList.contains('active');
+
+          // Close all FAQ items
+          document.querySelectorAll('.faq-item').forEach(i => {
+            i.classList.remove('active');
+            const b = i.querySelector('.faq-question');
+            if (b) b.setAttribute('aria-expanded', 'false');
+          });
+
+          // If was not active, expand it
+          if (!isActive) {
+            item.classList.add('active');
+            this.setAttribute('aria-expanded', 'true');
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
