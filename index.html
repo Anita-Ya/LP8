@@ -46,6 +46,7 @@
       overflow: hidden;
       display: flex;
       flex-direction: column;
+      padding-bottom: 85px;
     }
 
     /* 1. Main Hero Banner */
@@ -1665,46 +1666,150 @@
     }
 
     /* ========================================================
-       11. Disclaimer Section & Footer
+       11. Disclaimer Section (Faint / Near-Invisible Footnote)
        ======================================================== */
     .disclaimer-section {
       width: 100%;
       background: #FFFFFF;
-      padding: 14px 16px 18px 16px;
-      border-top: 1px solid rgba(29, 53, 87, 0.06);
+      padding: 10px 14px 16px 14px;
+      border: none;
     }
 
     .disclaimer-box {
       background: transparent;
       border: none;
       padding: 0;
-      text-align: justify;
+      text-align: center;
     }
 
     .disclaimer-text {
-      font-size: 11.5px;
-      font-weight: 500;
-      color: rgba(29, 53, 87, 0.45);
-      line-height: 1.55;
-      margin: 0;
+      font-size: 9px;
+      font-weight: 400;
+      color: rgba(29, 53, 87, 0.22);
+      line-height: 1.45;
+      margin: 0 auto;
+      max-width: 410px;
     }
 
     .disclaimer-label {
-      font-weight: 700;
-      color: rgba(29, 53, 87, 0.55);
-      margin-right: 4px;
+      font-weight: 600;
+      color: rgba(29, 53, 87, 0.26);
+      margin-right: 3px;
     }
 
-    .page-footer {
+    /* ========================================================
+       Sticky Floating Bottom Bar (Matching user screenshot)
+       ======================================================== */
+    .sticky-bottom-bar {
+      position: fixed;
+      bottom: 12px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: calc(100% - 22px);
+      max-width: 430px;
+      background: linear-gradient(135deg, #1D3557 0%, #0E1E33 100%);
+      border-radius: 999px;
+      padding: 7px 10px 7px 8px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.42), 0 2px 8px rgba(29, 53, 87, 0.35);
+      border: 1.5px solid rgba(255, 255, 255, 0.18);
+      z-index: 9999;
+      animation: floatSlideUp 0.4s ease-out;
+    }
+
+    @keyframes floatSlideUp {
+      from {
+        transform: translate(-50%, 100%);
+        opacity: 0;
+      }
+      to {
+        transform: translate(-50%, 0);
+        opacity: 1;
+      }
+    }
+
+    .sticky-thumb-box {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 2px solid rgba(255, 255, 255, 0.95);
+      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
+      flex-shrink: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sticky-thumb-box img {
       width: 100%;
-      background: var(--primary);
+      height: 100%;
+      object-fit: contain;
+      padding: 2px;
+    }
+
+    .sticky-info-col {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      flex-grow: 1;
+      text-align: left;
+      min-width: 0;
+    }
+
+    .sticky-product-title {
+      font-size: 15.5px;
+      font-weight: 800;
       color: #FFFFFF;
-      text-align: center;
-      padding: 20px 14px;
-      font-size: 13px;
+      line-height: 1.2;
+      letter-spacing: -0.2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sticky-product-sub {
+      font-size: 12px;
       font-weight: 600;
-      line-height: 1.5;
-      letter-spacing: 0.2px;
+      color: rgba(255, 255, 255, 0.85);
+      line-height: 1.2;
+      margin-top: 2px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .sticky-order-btn {
+      background: var(--accent);
+      color: #FFFFFF;
+      font-size: 15.5px;
+      font-weight: 800;
+      font-family: inherit;
+      padding: 11px 20px;
+      border-radius: 999px;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      box-shadow: 0 4px 14px rgba(230, 57, 70, 0.45);
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+      flex-shrink: 0;
+      border: none;
+      cursor: pointer;
+    }
+
+    .sticky-order-btn:hover {
+      transform: scale(1.04);
+      box-shadow: 0 6px 18px rgba(230, 57, 70, 0.55);
+    }
+
+    .sticky-order-btn:active {
+      transform: scale(0.98);
     }
   </style>
 </head>
@@ -2486,21 +2591,23 @@
     <section class="disclaimer-section" id="disclaimer">
       <div class="disclaimer-box">
         <p class="disclaimer-text">
-          <strong class="disclaimer-label">Disclaimer:</strong> बच्चों के मानसिक और शारीरिक विकास में देरी, चलने-फिरने में परेशानी, मांसपेशियों की कमजोरी और अन्य न्यूरोलॉजिकल लक्षणों के कई कारण हो सकते हैं। Neuro Mantra Syrup चिकित्सकीय जाँच, निदान, निर्धारित उपचार या थेरेपी का विकल्प नहीं है। बच्चों को कोई भी Product देने से पहले बाल रोग विशेषज्ञ से सलाह लें। Product से जुड़े सभी लाभ और दावे प्रमाणित जानकारी के अनुरूप ही होने चाहिए।
+          <span class="disclaimer-label">Disclaimer:</span> बच्चों के मानसिक और शारीरिक विकास में देरी, चलने-फिरने में परेशानी, मांसपेशियों की कमजोरी और अन्य न्यूरोलॉजिकल लक्षणों के कई कारण हो सकते हैं। Neuro Mantra Syrup चिकित्सकीय जाँच, निदान, निर्धारित उपचार या थेरेपी का विकल्प नहीं है। बच्चों को कोई भी Product देने से पहले बाल रोग विशेषज्ञ से सलाह लें। Product से जुड़े सभी लाभ और दावे प्रमाणित जानकारी के अनुरूप ही होने चाहिए।
         </p>
       </div>
     </section>
-
-    <!-- Page Footer -->
-    <footer class="page-footer">
-      <p style="margin: 0; font-size: 13.5px; font-weight: 700;">
-        &copy; 2026 SP Herbal Life &middot; Neuro Mantra Syrup
-      </p>
-      <p style="margin: 4px 0 0 0; font-size: 12px; opacity: 0.85;">
-        समर्पित बच्चों की बेहतर मानसिक व शारीरिक देखभाल
-      </p>
-    </footer>
   </main>
+
+  <!-- Sticky Bottom Floating Bar (Matching Reference) -->
+  <aside class="sticky-bottom-bar" aria-label="Sticky Order Bar">
+    <div class="sticky-thumb-box">
+      <img src="images/product image.jpeg" alt="Neuro Mantra Syrup">
+    </div>
+    <div class="sticky-info-col">
+      <span class="sticky-product-title">Neuro Mantra</span>
+      <span class="sticky-product-sub">Recovery & Daily Support</span>
+    </div>
+    <a href="#order-now" class="sticky-order-btn" id="stickyOrderBtn">Order &rarr;</a>
+  </aside>
 
   <!-- Thank You / Order Confirmation Modal -->
   <div class="thankyou-modal-overlay" id="thankyouModal" role="dialog" aria-modal="true">
@@ -2735,6 +2842,22 @@
           }
         });
       });
+
+      // Sticky Bottom Bar Scroll-to-Order Handler
+      const stickyOrderBtn = document.getElementById('stickyOrderBtn');
+      if (stickyOrderBtn) {
+        stickyOrderBtn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const target = document.getElementById('order-now');
+          if (target) {
+            target.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            setTimeout(function () {
+              const nameInp = document.getElementById('customerName');
+              if (nameInp) nameInp.focus();
+            }, 600);
+          }
+        });
+      }
     });
   </script>
 </body>
