@@ -111,36 +111,36 @@
     .symptom-card {
       width: 100%;
       background-color: #FFFFFF;
-      border-radius: 20px;
-      border: 1.5px solid rgba(29, 53, 87, 0.1);
-      box-shadow: -5px 6px 0px 0px var(--accent);
-      padding: 14px 16px;
+      border-radius: 24px;
+      border: 2px solid rgba(29, 53, 87, 0.12);
+      box-shadow: -6px 7px 0px 0px var(--accent);
+      padding: 16px 18px;
       display: flex;
       align-items: center;
-      gap: 16px;
+      gap: 18px;
       position: relative;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
     /* Alternating Card Border Accent (Red and Dark Blue) */
     .symptom-card.alt-card {
-      box-shadow: -5px 6px 0px 0px var(--primary);
+      box-shadow: -6px 7px 0px 0px var(--primary);
     }
 
     .symptom-card:hover {
       transform: translateY(-2px);
     }
 
-    /* Left Arch Image Frame - Enlarged */
+    /* Left Arch Image Frame - Enlarged to Max */
     .arch-image-wrap {
-      width: 120px;
-      height: 142px;
-      border-radius: 65px 65px 16px 16px;
-      border: 3px solid var(--accent);
+      width: 145px;
+      height: 168px;
+      border-radius: 75px 75px 18px 18px;
+      border: 3.5px solid var(--accent);
       overflow: hidden;
       flex-shrink: 0;
       background: #F4F6F9;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
       position: relative;
     }
 
@@ -163,10 +163,10 @@
     }
 
     .card-title-text {
-      font-size: 19.5px;
-      font-weight: 700;
+      font-size: 22.5px;
+      font-weight: 800;
       color: var(--primary);
-      line-height: 1.42;
+      line-height: 1.35;
       letter-spacing: -0.2px;
     }
 
@@ -314,7 +314,7 @@
 
     /* Left: Product Bottle (Hero angle like reference) */
     .product-bottle-col {
-      flex: 1.08;
+      flex: 1.25;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -323,18 +323,18 @@
     .product-bottle-box {
       position: relative;
       width: 100%;
-      max-width: 200px;
+      max-width: 228px;
       border-radius: 22px;
       overflow: hidden;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
-      border: 2px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5);
+      border: 2px solid rgba(255, 255, 255, 0.22);
       background: #0C1A2E;
-      transform: rotate(-3deg);
+      transform: rotate(-2deg);
       transition: transform 0.3s ease;
     }
 
     .product-bottle-box:hover {
-      transform: rotate(0deg) scale(1.02);
+      transform: rotate(0deg) scale(1.03);
     }
 
     .product-bottle-box img {
@@ -346,10 +346,10 @@
 
     /* Right: Feature Pill Cards (Stacked like reference image) */
     .product-features-col {
-      flex: 1.12;
+      flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 14px;
+      gap: 13px;
     }
 
     .feature-pill-card {
@@ -897,7 +897,7 @@
     .reviews-section {
       width: 100%;
       background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-      padding: 24px 14px 40px 14px;
+      padding: 24px 14px 14px 14px;
       position: relative;
     }
 
@@ -925,13 +925,13 @@
     }
 
     .reviews-subtitle {
-      font-size: 14.5px;
-      font-weight: 600;
-      color: rgba(29, 53, 87, 0.82);
-      line-height: 1.5;
-      max-width: 410px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.45;
+      max-width: 420px;
       text-align: center;
-      margin: -8px auto 20px auto;
+      margin: -6px auto 22px auto;
     }
 
     .parent-reviews-list {
@@ -1470,12 +1470,15 @@
         font-size: 19px;
       }
       .arch-image-wrap {
-        width: 105px;
-        height: 126px;
-        border-radius: 56px 56px 14px 14px;
+        width: 135px;
+        height: 156px;
+        border-radius: 70px 70px 16px 16px;
+        border-width: 3.5px;
       }
       .card-title-text {
-        font-size: 17.5px;
+        font-size: 21px;
+        font-weight: 800;
+        line-height: 1.35;
       }
       .alert-text {
         font-size: 16.5px;
@@ -1488,7 +1491,7 @@
         padding: 5px 14px;
       }
       .product-bottle-box {
-        max-width: 165px;
+        max-width: 200px;
       }
       .feature-text {
         font-size: 14px;
@@ -1549,9 +1552,8 @@
     .faq-section {
       width: 100%;
       background: #FFFFFF;
-      padding: 34px 14px 38px 14px;
+      padding: 16px 14px 34px 14px;
       position: relative;
-      border-top: 1px solid rgba(29, 53, 87, 0.08);
     }
 
     .faq-header {
@@ -1576,13 +1578,13 @@
     }
 
     .faq-subtitle {
-      font-size: 14.5px;
-      font-weight: 600;
-      color: rgba(29, 53, 87, 0.82);
-      line-height: 1.5;
-      max-width: 410px;
+      font-size: 18px;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.45;
+      max-width: 420px;
       text-align: center;
-      margin: -8px auto 20px auto;
+      margin: -6px auto 22px auto;
     }
 
     .faq-list {
@@ -1959,13 +1961,6 @@
         <h2 class="section-header-banner-title">
           बच्चे की Mental Wellness और Daily Care के लिए Neuro Mantra Syrup
         </h2>
-      </div>
-
-      <!-- Sub-badge Pill -->
-      <div class="product-badge-wrap">
-        <div class="product-badge-pill">
-          Neuro Mantra Syrup की खास बातें:
-        </div>
       </div>
 
       <!-- Showcase Row: Bottle on Left + Features on Right -->
