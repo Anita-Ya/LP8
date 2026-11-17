@@ -1,310 +1,131 @@
 <!DOCTYPE html>
 <html lang="hi">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>ऑर्डर कन्फर्म हुआ | Neuro Mantra</title>
-
-  <!-- Google Fonts -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#1d3557">
+  <title>Order Confirmed | Neuro Mantra</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Mukta:wght@500;600;700;800&display=swap"
-    rel="stylesheet">
-
+  <link href="https://fonts.googleapis.com/css2?family=Mukta:wght@400;500;600;700;800&family=Poppins:wght@500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root {
-      --primary: #1D3557;
-      --accent: #E63946;
-      --white: #FFFFFF;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    :root { --navy:#1d3557; --deep:#10263f; --gold:#edb813; --ink:#172d49; --muted:#516783; }
+    * { box-sizing:border-box; }
     body {
-      font-family: 'Plus Jakarta Sans', 'Mukta', -apple-system, BlinkMacSystemFont, sans-serif;
-      background: rgba(29, 53, 87, 0.72);
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 16px;
-      color: var(--primary);
-      -webkit-font-smoothing: antialiased;
+      min-height:100vh; margin:0; padding:20px 14px;
+      background:linear-gradient(112deg,#254e63 0%,#f4c515 16%,#fff1ad 50%,#f4c515 84%,#254e63 100%);
+      color:var(--ink); font-family:'Mukta',sans-serif; -webkit-font-smoothing:antialiased;
     }
-
-    .thankyou-modal-card {
-      position: relative;
-      background: #FFFFFF;
-      border-radius: 26px;
-      padding: 34px 22px 28px 22px;
-      width: 100%;
-      max-width: 410px;
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
-      border: 2px solid rgba(29, 53, 87, 0.08);
-      text-align: center;
-      animation: popIn 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) both;
+    .page-card {
+      width:min(100%,670px); min-height:calc(100vh - 40px); margin:0 auto; padding:34px 42px 24px;
+      position:relative; overflow:hidden; background:#fff; border:4px solid var(--navy);
+      border-top:0; border-radius:0 0 34px 34px; box-shadow:0 18px 55px #17304b26;
     }
-
-    @keyframes popIn {
-      0% {
-        transform: scale(0.9);
-        opacity: 0;
-      }
-      100% {
-        transform: scale(1);
-        opacity: 1;
-      }
+    .back-link { display:inline-flex;align-items:center;gap:7px;margin:0 0 20px;color:var(--navy);font-size:16px;font-weight:700;text-decoration:none; }
+    .back-link:hover { color:#e63946;text-decoration:underline; }
+    .confirmation { text-align:center; }
+    .checkmark { width:54px;height:54px;margin:0 auto 10px;border-radius:50%;display:grid;place-items:center;background:#eaf5ed;color:#21834a;font-size:34px;font-weight:800; }
+    h1 { margin:0 0 5px; color:var(--navy); font-size:30px; line-height:1.25; font-weight:800; }
+    .intro { margin:18px auto 0; max-width:470px; font-size:21px; line-height:1.65; }
+    .intro strong { font-family:'Poppins',sans-serif; font-size:.88em; }
+    .tracking { margin:34px auto 25px; display:grid; grid-template-columns:minmax(0,1fr) 76px minmax(115px,.52fr); align-items:center; gap:12px; }
+    .product-visual { height:260px; border-radius:18px; overflow:hidden; background:#15365c; box-shadow:0 12px 34px #10263f24; }
+    .product-visual img { width:100%;height:100%;display:block;object-fit:contain;object-position:center; }
+    .stage-label { margin-top:7px;text-align:center;font-family:'Poppins',sans-serif;font-size:19px;font-weight:700;color:#34465c; }
+    .track-arrow { color:#080b10; font:700 54px/1 Arial,sans-serif; text-align:center; transform:translateY(-14px); }
+    .delivery-icon { width:112px;height:100px;margin:0 auto;display:grid;place-items:center;border:3px solid #101820;border-radius:20px;box-shadow:0 10px 22px #142c471c;background:#fff; }
+    .delivery-icon svg { width:68px;height:68px; }
+    .order-states { display:grid;grid-template-columns:1fr 1fr;gap:14px;text-align:center;margin:27px 0 40px; }
+    .state-title { display:block;color:#111;font-size:17px;font-weight:800;line-height:1.4; }
+    .state-subtitle { display:block;color:#405b7c;font-size:17px;line-height:1.4; }
+    .notice { max-width:500px;margin:0 auto 48px;text-align:center;color:#111;font-size:19px;line-height:1.65; }
+    .notice strong { font-weight:800; }
+    .steps { margin:0 0 34px; }
+    .steps h2 { margin:0 0 6px;font-size:21px;line-height:1.4;color:#111;font-weight:800; }
+    .steps ul { margin:0;padding-left:25px;font-size:19px;line-height:1.85; }
+    .cod-note { margin:25px 0 0;padding:13px 16px;border-radius:14px;background:#f4f7fa;text-align:center;color:var(--muted);font-size:16px; }
+    footer { margin:38px -18px 0;padding:22px 10px 0;border-top:1px solid #edf0f3;text-align:center;color:#60768e;font:14px 'Poppins',sans-serif; }
+    @media (max-width:560px) {
+      body { padding:0;background:linear-gradient(115deg,#254e63 0%,#f4c515 11%,#fff0a8 50%,#f4c515 89%,#254e63 100%); }
+      .page-card { width:calc(100% - 26px);min-height:100vh;padding:28px 20px 20px;border-width:3px;border-top:0;border-radius:0 0 28px 28px; }
+      h1 { font-size:26px; }
+      .intro { font-size:18px; }
+      .tracking { grid-template-columns:minmax(0,1fr) 42px minmax(82px,.52fr);gap:7px;margin:28px auto 20px; }
+      .product-visual { height:clamp(190px,58vw,270px);border-radius:15px; }
+      .track-arrow { font-size:38px; }
+      .delivery-icon { width:78px;height:76px;border-radius:16px; }
+      .delivery-icon svg { width:53px;height:53px; }
+      .stage-label { font-size:16px; }
+      .order-states { margin:23px 0 32px;gap:6px; }
+      .state-title,.state-subtitle { font-size:15px; }
+      .notice { font-size:17px;margin-bottom:38px; }
+      .steps h2 { font-size:19px; }
+      .steps ul { font-size:17px;line-height:1.7;padding-left:22px; }
+      .cod-note { font-size:15px; }
+      footer { margin-top:30px; }
     }
-
-    .thankyou-close-btn {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      width: 32px;
-      height: 32px;
-      border-radius: 50%;
-      background: rgba(29, 53, 87, 0.06);
-      border: none;
-      font-size: 20px;
-      color: var(--primary);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      text-decoration: none;
-      line-height: 1;
-      transition: background 0.15s ease, color 0.15s ease, transform 0.15s ease;
-    }
-
-    .thankyou-close-btn:hover {
-      background: rgba(230, 57, 70, 0.12);
-      color: var(--accent);
-      transform: scale(1.08);
-    }
-
-    .thankyou-icon-circle {
-      width: 68px;
-      height: 68px;
-      border-radius: 50%;
-      background: rgba(29, 53, 87, 0.04);
-      border: 2.5px solid var(--primary);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 16px auto;
-      color: var(--primary);
-    }
-
-    .thankyou-icon-circle svg {
-      width: 32px;
-      height: 32px;
-      stroke: var(--primary);
-      stroke-width: 3;
-    }
-
-    .thankyou-badge {
-      display: inline-block;
-      background: rgba(29, 53, 87, 0.07);
-      color: var(--primary);
-      border: 1.5px solid rgba(29, 53, 87, 0.15);
-      font-size: 14px;
-      font-weight: 800;
-      padding: 5px 20px;
-      border-radius: 999px;
-      letter-spacing: 0.3px;
-      margin-bottom: 14px;
-    }
-
-    .thankyou-title {
-      font-size: 23px;
-      font-weight: 800;
-      color: var(--primary);
-      line-height: 1.3;
-      margin-bottom: 8px;
-    }
-
-    .thankyou-title .customer-name {
-      color: var(--accent);
-    }
-
-    .thankyou-desc {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--primary);
-      line-height: 1.45;
-      margin-bottom: 18px;
-    }
-
-    .thankyou-desc strong {
-      color: var(--primary);
-      font-weight: 800;
-    }
-
-    .thankyou-details-box {
-      background: #F9FBFC;
-      border: 1.5px solid rgba(29, 53, 87, 0.12);
-      border-radius: 16px;
-      padding: 14px 16px;
-      margin-bottom: 16px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      text-align: left;
-    }
-
-    .thankyou-detail-row {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 15px;
-    }
-
-    .thankyou-detail-row:not(:last-child) {
-      border-bottom: 1px dashed rgba(29, 53, 87, 0.14);
-      padding-bottom: 9px;
-    }
-
-    .detail-label {
-      color: rgba(29, 53, 87, 0.7);
-      font-weight: 600;
-    }
-
-    .detail-value {
-      font-weight: 800;
-      color: var(--primary);
-    }
-
-    .detail-value.order-id {
-      letter-spacing: 0.5px;
-    }
-
-    .detail-value.delivery-status {
-      color: var(--primary);
-      font-weight: 900;
-    }
-
-    .thankyou-note {
-      font-size: 13.5px;
-      font-weight: 600;
-      color: rgba(29, 53, 87, 0.75);
-      line-height: 1.45;
-      margin-bottom: 20px;
-    }
-
-    .thankyou-action-btn {
-      display: block;
-      width: 100%;
-      padding: 14px 20px;
-      background: var(--primary);
-      color: #FFFFFF;
-      font-size: 17.5px;
-      font-family: inherit;
-      font-weight: 800;
-      border: none;
-      border-radius: 14px;
-      cursor: pointer;
-      text-decoration: none;
-      text-align: center;
-      box-shadow: 0 4px 16px rgba(29, 53, 87, 0.25);
-      transition: background 0.15s ease, transform 0.15s ease;
-    }
-
-    .thankyou-action-btn:hover {
-      background: #152741;
-      transform: translateY(-2px);
-      color: #FFFFFF;
-    }
+    @media (max-width:360px) { .page-card { padding-right:15px;padding-left:15px; } .tracking { grid-template-columns:minmax(0,1fr) 32px 74px;gap:5px; } .delivery-icon { width:70px;height:70px; } }
   </style>
 </head>
-
 <body>
+  <main class="page-card">
+    <a class="back-link" href="index.html" aria-label="वापस लैंडिंग पेज पर जाएँ">← वापस जाएँ</a>
+    <header class="confirmation">
+      <div class="checkmark" aria-hidden="true">✓</div>
+      <h1>बधाई हो, <span id="customerName">आपका</span>!</h1>
+      <p class="intro"><strong>आपका ऑर्डर सफलतापूर्वक प्राप्त हो गया है</strong><br>हमारी टीम WhatsApp / कॉल के माध्यम से जल्द ही आपसे संपर्क करेगी।</p>
+    </header>
 
-  <div class="thankyou-modal-card">
-    <!-- Close Button -->
-    <a href="index.html" class="thankyou-close-btn" aria-label="Close">&times;</a>
-
-    <!-- Success Icon Circle -->
-    <div class="thankyou-icon-circle">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
-        <polyline points="20 6 9 17 4 12"></polyline>
-      </svg>
-    </div>
-
-    <!-- Badge -->
-    <div class="thankyou-badge">Order Confirmed!</div>
-
-    <!-- Main Headline -->
-    <h3 class="thankyou-title">बधाई हो, <span class="customer-name" id="modalCustomerName">Anita Yadav</span>!</h3>
-
-    <!-- Subtitle -->
-    <p class="thankyou-desc">
-      आपके लिए <strong>Neuro Mantra</strong> का ऑर्डर सफलतापूर्वक स्वीकार कर लिया गया है।
-    </p>
-
-    <!-- Details Box -->
-    <div class="thankyou-details-box">
-      <div class="thankyou-detail-row">
-        <span class="detail-label">Order ID:</span>
-        <span class="detail-value order-id" id="modalOrderId">NM-702926</span>
+    <section class="tracking" aria-label="Order delivery progress">
+      <div>
+        <div class="product-visual"><img src="images/product-bottle-thumb.jpeg" alt="Neuro Mantra syrup bottle"></div>
+        <div class="stage-label">Product</div>
       </div>
-      <div class="thankyou-detail-row">
-        <span class="detail-label">Mobile:</span>
-        <span class="detail-value" id="modalCustomerPhone">+91 9001050074</span>
+      <div class="track-arrow" aria-hidden="true">➜</div>
+      <div>
+        <div class="delivery-icon" aria-hidden="true">
+          <svg viewBox="0 0 80 80" role="img">
+            <rect x="30" y="13" width="39" height="37" rx="8" fill="#f3c63f"/>
+            <path d="M8 35h20l8 10h27v13H8z" fill="#ed4e46"/>
+            <path d="M8 35h17l-5 11H8z" fill="#36b9e8"/>
+            <path d="M26 35v11H8" fill="none" stroke="#fff" stroke-width="2"/>
+            <circle cx="24" cy="59" r="8" fill="#34304b"/><circle cx="24" cy="59" r="3.5" fill="#aaa4bc"/>
+            <circle cx="56" cy="59" r="8" fill="#34304b"/><circle cx="56" cy="59" r="3.5" fill="#aaa4bc"/>
+          </svg>
+        </div>
+        <div class="stage-label">Delivery</div>
       </div>
-      <div class="thankyou-detail-row">
-        <span class="detail-label">Delivery:</span>
-        <span class="detail-value delivery-status">FREE Express Delivery</span>
-      </div>
-    </div>
+    </section>
 
-    <!-- Note -->
-    <p class="thankyou-note">
-      हमारे विशेषज्ञ जल्द ही डिलीवरी कन्फर्मेशन के लिए आपसे संपर्क करेंगे।
-    </p>
+    <section class="order-states" aria-label="Current order status">
+      <div><span class="state-title">आपका ऑर्डर</span><span class="state-subtitle">Order Placed</span></div>
+      <div><span class="state-title">डिस्पैच</span><span class="state-subtitle">In Dispatch</span></div>
+    </section>
 
-    <!-- Action Button -->
-    <a href="index.html" class="thankyou-action-btn" id="modalActionBtn">
-      धन्यवाद, ठीक है
-    </a>
-  </div>
+    <p class="notice">⚠️ <strong>Important:</strong> अगर आपने गलत मोबाइल नंबर या एड्रेस डाला है, तो कृपया तुरंत रिप्लाई करके सही डिटेल्स भेजें।</p>
 
-  <!-- Dynamic Param Reader Script -->
+    <section class="steps">
+      <h2>आगे क्या होगा?</h2>
+      <ul>
+        <li>24 घंटे के अंदर कॉल करके ऑर्डर confirm करेंगे</li>
+        <li>आपके पते की पुष्टि करके डिलीवरी तय करेंगे</li>
+        <li>3-5 दिनों में Neuro Mantra आपके घर पहुंचेगा</li>
+        <li>COD - डिलीवरी के समय पैसा दें</li>
+      </ul>
+      <p class="cod-note">हमारी टीम डिलीवरी कन्फर्म करने के लिए आपसे संपर्क करेगी।</p>
+    </section>
+
+    <footer>Neuro Mantra © All Rights Reserved</footer>
+  </main>
   <script>
-    (function () {
-      try {
-        const params = new URLSearchParams(window.location.search);
-        const name = params.get('name');
-        const phone = params.get('phone');
-        const orderId = params.get('orderId');
-
-        if (name && name.trim()) {
-          document.getElementById('modalCustomerName').textContent = name.trim();
-        }
-
-        if (phone && phone.trim()) {
-          const cleanPhone = phone.trim().replace(/^\+91/, '').trim();
-          document.getElementById('modalCustomerPhone').textContent = '+91 ' + cleanPhone;
-        }
-
-        if (orderId && orderId.trim()) {
-          document.getElementById('modalOrderId').textContent = orderId.trim();
-        } else {
-          // Default fallback Order ID if opened without query params
-          const randomNum = Math.floor(100000 + Math.random() * 900000);
-          document.getElementById('modalOrderId').textContent = 'NM-' + randomNum;
-        }
-      } catch (err) {
-        console.error('Error parsing order query params:', err);
+    (() => {
+      const params = new URLSearchParams(window.location.search);
+      const name = params.get('name');
+      if (name && name.trim()) {
+        const displayName = name.trim().replace(/\b[a-z]/g, letter => letter.toUpperCase());
+        document.getElementById('customerName').textContent = displayName;
       }
     })();
   </script>
-
 </body>
-
 </html>
