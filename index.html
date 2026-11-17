@@ -480,38 +480,13 @@
       background: #FFFFFF;
     }
 
-    .aspect-title-row {
-      display: flex;
-      align-items: center;
-      gap: 8px;
-      margin-bottom: 8px;
-    }
-
-    .aspect-leaf-icon {
-      width: 22px;
-      height: 22px;
-      color: var(--accent);
-      flex-shrink: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .aspect-showcase-card:nth-child(even) .aspect-leaf-icon {
-      color: var(--primary);
-    }
-
-    .aspect-leaf-icon svg {
-      width: 100%;
-      height: 100%;
-    }
-
     .aspect-card-title {
       font-size: 20px;
       font-weight: 800;
       color: var(--primary);
       letter-spacing: -0.3px;
       line-height: 1.32;
+      margin-bottom: 8px;
     }
 
     .aspect-card-desc {
@@ -901,8 +876,8 @@
        ======================================================== */
     .reviews-section {
       width: 100%;
-      background: linear-gradient(180deg, #F8FAFC 0%, #FFFFFF 100%);
-      padding: 24px 14px 14px 14px;
+      background: #F4F6F9;
+      padding: 24px 14px 28px 14px;
       position: relative;
     }
 
@@ -930,132 +905,180 @@
     }
 
     .reviews-subtitle {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--primary);
       line-height: 1.45;
       max-width: 420px;
       text-align: center;
-      margin: -6px auto 22px auto;
+      margin: -6px auto 24px auto;
     }
 
-    .parent-reviews-list {
+    /* Vertical Timeline Container */
+    .reviews-timeline {
+      position: relative;
+      width: 100%;
+      padding-left: 38px;
       display: flex;
       flex-direction: column;
-      gap: 16px;
+      gap: 22px;
+      box-sizing: border-box;
+    }
+
+    /* Vertical Dashed Line */
+    .reviews-timeline::before {
+      content: "";
+      position: absolute;
+      top: 18px;
+      bottom: 24px;
+      left: 17px;
+      width: 0;
+      border-left: 2px dashed rgba(29, 53, 87, 0.35);
+      z-index: 1;
+    }
+
+    /* Timeline Item */
+    .review-timeline-item {
+      position: relative;
       width: 100%;
     }
 
-    /* Reference Style Card matching user image */
-    .parent-review-card {
-      background: #FFFFFF;
-      border-radius: 20px;
-      padding: 18px 16px 18px 14px;
-      border: 1.5px solid rgba(29, 53, 87, 0.1);
-      box-shadow: 0 4px 18px rgba(29, 53, 87, 0.08);
+    /* Circular Navy Checkmark Badge */
+    .review-timeline-badge {
+      position: absolute;
+      left: -38px;
+      top: 14px;
+      width: 36px;
+      height: 36px;
+      background: #1D3557;
+      border: 3.5px solid #F4F6F9;
+      border-radius: 50%;
       display: flex;
-      align-items: flex-start;
-      gap: 14px;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(29, 53, 87, 0.2);
+      z-index: 2;
+    }
+
+    .review-timeline-badge svg {
+      width: 17px;
+      height: 17px;
+      stroke: #FFFFFF;
+      stroke-width: 3;
+      fill: none;
+    }
+
+    /* Review Card */
+    .review-card-modern {
+      background: #FFFFFF;
+      border: 1.5px solid rgba(29, 53, 87, 0.12);
+      border-radius: 20px;
+      padding: 18px 18px 18px 18px;
+      box-shadow: 0 4px 18px rgba(29, 53, 87, 0.08);
       position: relative;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .parent-review-card:hover {
+    .review-card-modern:hover {
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(29, 53, 87, 0.12);
     }
 
-    /* Left Avatar Box */
-    .parent-avatar-box {
+    /* Top Row: 5 Gold Stars & Quotation Mark */
+    .review-card-header {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      flex-shrink: 0;
-      width: 82px;
+      justify-content: space-between;
+      margin-bottom: 12px;
     }
 
-    .parent-avatar-circle {
-      width: 76px;
-      height: 76px;
-      border-radius: 50%;
+    .review-gold-stars {
+      display: flex;
+      align-items: center;
+      gap: 3px;
+    }
+
+    .review-gold-stars svg {
+      width: 18px;
+      height: 18px;
+      fill: #F59E0B;
+    }
+
+    .review-quote-mark {
+      font-family: Georgia, serif;
+      font-size: 38px;
+      line-height: 0.8;
+      color: var(--accent);
+      font-weight: 700;
+      user-select: none;
+      opacity: 0.85;
+    }
+
+    /* Story Text */
+    .review-story-text {
+      font-size: 15px;
+      font-weight: 500;
+      color: #1E293B;
+      line-height: 1.62;
+      margin: 0 0 16px 0;
+      text-align: left;
+    }
+
+    /* Dashed Divider */
+    .review-card-divider {
+      width: 100%;
+      height: 0;
+      border-top: 1px dashed rgba(29, 53, 87, 0.12);
+      margin-bottom: 14px;
+    }
+
+    /* Bottom Author Row */
+    .review-author-row {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .review-author-thumb {
+      width: 96px;
+      height: 72px;
+      border-radius: 12px;
+      border: 2px solid var(--primary);
       overflow: hidden;
-      border: 3px solid #FFFFFF;
-      box-shadow: 0 4px 12px rgba(29, 53, 87, 0.15);
-      background: #F4F6F9;
+      flex-shrink: 0;
+      background: #FFFFFF;
+      box-shadow: 0 2px 8px rgba(29, 53, 87, 0.12);
     }
 
-    .parent-avatar-circle img {
+    .review-author-thumb img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       display: block;
     }
 
-    .parent-city-pill {
-      margin-top: -12px;
-      background: var(--accent);
-      color: #FFFFFF;
-      font-size: 12.5px;
-      font-weight: 800;
-      padding: 3px 12px;
-      border-radius: 999px;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-      z-index: 2;
-      letter-spacing: 0.3px;
-    }
-
-    .parent-city-pill.city-blue {
-      background: var(--primary);
-    }
-
-    /* Right Content Box */
-    .parent-review-content {
-      flex-grow: 1;
+    .review-author-meta {
       display: flex;
       flex-direction: column;
+      gap: 2px;
     }
 
-    .parent-review-top {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      margin-bottom: 4px;
-    }
-
-    .parent-name {
-      font-size: 19px;
+    .review-author-name {
+      font-size: 18px;
       font-weight: 800;
-      color: var(--primary);
+      color: #1D3557;
+      margin: 0;
       letter-spacing: -0.2px;
+      line-height: 1.3;
     }
 
-    .parent-stars {
-      display: flex;
-      align-items: center;
-      gap: 3px;
-      color: var(--accent);
-    }
-
-    .parent-stars svg {
-      width: 16px;
-      height: 16px;
-      fill: currentColor;
-    }
-
-    .parent-review-highlight {
-      font-size: 14.5px;
-      font-weight: 800;
-      color: var(--primary);
-      margin-bottom: 5px;
-      display: inline-block;
-    }
-
-    .parent-review-quote {
+    .review-author-city {
       font-size: 14px;
       font-weight: 600;
-      color: rgba(29, 53, 87, 0.88);
-      line-height: 1.45;
+      color: #64748B;
       margin: 0;
+      line-height: 1.3;
     }
 
     /* ========================================================
@@ -1113,6 +1136,12 @@
       flex-direction: column;
       gap: 16px;
     }
+
+    .adyos-embed-container[hidden], #orderForm[hidden] { display: none !important; }
+    .order-form-status { color: var(--accent); font-weight: 700; font-size: 14px; }
+    .order-field-input.address-input { min-height: 88px; height: auto; padding-top: 13px; padding-bottom: 13px; resize: vertical; }
+    #user-pincode.order-field-input, #user-address.order-field-input { padding-left: 16px; }
+    .order-submit-btn:disabled { opacity: .65; cursor: wait; transform: none; }
 
     .order-field-group {
       display: flex;
@@ -1743,6 +1772,11 @@
       text-underline-offset: 2.5px;
       font-weight: 500;
       transition: color 0.15s ease;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      font-family: inherit;
     }
 
     .legal-link:hover {
@@ -1753,6 +1787,246 @@
       font-size: 10.5px;
       color: rgba(29, 53, 87, 0.32);
       user-select: none;
+    }
+
+    /* ========================================================
+       Legal Popup Modals (Landing Page Color Theme: Navy & Gold)
+       ======================================================== */
+    .legal-modal-overlay {
+      position: fixed;
+      inset: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(15, 29, 48, 0.78);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+      z-index: 100000;
+      box-sizing: border-box;
+      opacity: 0;
+      transition: opacity 0.25s ease;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .legal-modal-overlay.active {
+      display: flex;
+      opacity: 1;
+    }
+
+    .legal-modal-card {
+      display: none;
+      background: #FFFFFF;
+      width: 100%;
+      max-width: 480px;
+      height: 80vh;
+      max-height: 560px;
+      min-height: 0;
+      border-radius: 22px;
+      box-shadow: 0 25px 60px rgba(15, 29, 48, 0.45);
+      border: 1.5px solid rgba(29, 53, 87, 0.15);
+      box-sizing: border-box;
+      position: relative;
+      margin: auto;
+      overflow: hidden;
+      flex-direction: column;
+      flex-shrink: 0;
+      animation: legalModalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    .legal-modal-card.active {
+      display: flex;
+    }
+
+    @keyframes legalModalPop {
+      0% {
+        transform: scale(0.94) translateY(12px);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+      }
+    }
+
+    .legal-modal-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 20px 14px 20px;
+      background: #FFFFFF;
+      border-bottom: 1.5px solid rgba(29, 53, 87, 0.1);
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      flex-shrink: 0;
+    }
+
+    .legal-modal-title-wrap {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .legal-modal-icon {
+      width: 28px;
+      height: 28px;
+      color: #1D3557;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .legal-modal-icon svg {
+      width: 24px;
+      height: 24px;
+      stroke: #1D3557;
+      fill: none;
+      stroke-width: 2.3;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .legal-modal-title {
+      font-size: 21px;
+      font-weight: 800;
+      color: #1D3557;
+      margin: 0;
+      letter-spacing: -0.3px;
+      line-height: 1.25;
+    }
+
+    .legal-modal-close-btn {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(29, 53, 87, 0.08);
+      border: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #1D3557;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      flex-shrink: 0;
+      padding: 0;
+    }
+
+    .legal-modal-close-btn:hover {
+      background: #E63946;
+      color: #FFFFFF;
+      transform: rotate(90deg);
+    }
+
+    .legal-modal-scroll-content {
+      padding: 18px 20px 24px 20px;
+      overflow-y: scroll !important;
+      -webkit-overflow-scrolling: touch;
+      overscroll-behavior: contain;
+      flex: 1 1 auto;
+      min-height: 0;
+      box-sizing: border-box;
+    }
+
+    /* Modern visible scrollbar */
+    .legal-modal-scroll-content::-webkit-scrollbar {
+      width: 7px;
+      display: block;
+    }
+
+    .legal-modal-scroll-content::-webkit-scrollbar-track {
+      background: rgba(29, 53, 87, 0.06);
+      border-radius: 999px;
+      margin: 6px 0;
+    }
+
+    .legal-modal-scroll-content::-webkit-scrollbar-thumb {
+      background: #1D3557;
+      border-radius: 999px;
+    }
+
+    .legal-modal-scroll-content::-webkit-scrollbar-thumb:hover {
+      background: #E63946;
+    }
+
+    .legal-modal-scroll-content::-webkit-scrollbar-thumb:hover {
+      background: rgba(29, 53, 87, 0.45);
+    }
+
+    .legal-modal-badge {
+      display: inline-block;
+      background: rgba(29, 53, 87, 0.08);
+      color: #1D3557;
+      font-size: 12px;
+      font-weight: 700;
+      padding: 3.5px 12px;
+      border-radius: 999px;
+      margin: 2px 0 14px 0;
+      letter-spacing: 0.2px;
+    }
+
+    .legal-modal-intro {
+      font-size: 14.5px;
+      font-weight: 500;
+      color: #334155;
+      line-height: 1.6;
+      margin: 0 0 14px 0;
+    }
+
+    .legal-modal-list {
+      list-style: none;
+      padding: 0;
+      margin: 0 0 16px 0;
+    }
+
+    .legal-modal-list li {
+      position: relative;
+      padding: 9px 0 9px 20px;
+      font-size: 14px;
+      font-weight: 500;
+      color: #1E293B;
+      line-height: 1.55;
+      border-bottom: 1px dashed rgba(29, 53, 87, 0.12);
+    }
+
+    .legal-modal-list li:last-child {
+      border-bottom: none;
+    }
+
+    .legal-modal-list li::before {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 17px;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #1D3557;
+    }
+
+    .legal-modal-callout {
+      background: rgba(29, 53, 87, 0.05);
+      border-left: 3.5px solid #1D3557;
+      border-radius: 8px;
+      padding: 12px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: #1D3557;
+      line-height: 1.55;
+      margin: 14px 0 0 0;
+    }
+
+    .legal-modal-note {
+      font-size: 13.5px;
+      font-weight: 500;
+      color: #475569;
+      line-height: 1.55;
+      margin: 14px 0 0 0;
     }
 
     /* ========================================================
@@ -1791,11 +2065,11 @@
     }
 
     .sticky-thumb-box {
-      width: 48px;
-      height: 48px;
+      width: 56px;
+      height: 56px;
       border-radius: 50%;
       overflow: hidden;
-      background: #FFFFFF;
+      background: #173b63;
       border: 2px solid rgba(255, 255, 255, 0.95);
       box-shadow: 0 3px 8px rgba(0, 0, 0, 0.25);
       flex-shrink: 0;
@@ -1808,7 +2082,9 @@
       width: 100%;
       height: 100%;
       object-fit: contain;
-      padding: 2px;
+      object-position: center center;
+      padding: 1px;
+      border-radius: 50%;
     }
 
     .sticky-info-col {
@@ -1878,7 +2154,7 @@
   <main class="landing-wrapper">
     <!-- 1st Section: Main Hero Banner -->
     <section class="banner-section">
-      <img class="banner-img" src="images/banner.jpg"
+      <img class="banner-img" src="images/banner.png"
         alt="बच्चा तो कोशिश बहुत करता है... लेकिन उसका शरीर उसका साथ नहीं दे पाता!" loading="eager">
     </section>
 
@@ -1896,7 +2172,7 @@
         <!-- Card 1: बार-बार लार टपकना। -->
         <div class="symptom-card">
           <div class="arch-image-wrap">
-            <img src="images/images.jpg" alt="बार-बार लार टपकना">
+            <img src="images/2.1.avif" alt="बार-बार लार टपकना">
           </div>
           <div class="card-text-col">
             <p class="card-title-text">बार-बार लार टपकना।</p>
@@ -1934,7 +2210,7 @@
         <!-- Card 3: चलने-फिरने में कठिनाई। -->
         <div class="symptom-card">
           <div class="arch-image-wrap">
-            <img src="images/images (1).jpg" alt="चलने-फिरने में कठिनाई">
+            <img src="images/bf-3.jpg" alt="चलने-फिरने में कठिनाई">
           </div>
           <div class="card-text-col">
             <p class="card-title-text">चलने-फिरने में कठिनाई।</p>
@@ -1953,7 +2229,7 @@
         <!-- Card 4: मांसपेशियों में कमजोरी महसूस होना। -->
         <div class="symptom-card alt-card">
           <div class="arch-image-wrap">
-            <img src="images/images (2).jpg" alt="मांसपेशियों में कमजोरी महसूस होना">
+            <img src="images/2.x.avif" alt="मांसपेशियों में कमजोरी महसूस होना">
           </div>
           <div class="card-text-col">
             <p class="card-title-text">मांसपेशियों में कमजोरी महसूस होना।</p>
@@ -2029,7 +2305,7 @@
         <!-- Left: Product Bottle -->
         <div class="product-bottle-col">
           <div class="product-bottle-box">
-            <img src="images/product image.jpeg" alt="Neuro Mantra Syrup Bottle">
+            <img src="images/product-showcase.avif" alt="Neuro Mantra Syrup Bottle">
           </div>
         </div>
 
@@ -2095,16 +2371,7 @@
             <img src="images/images (6).jpg" alt="Focus Support">
           </div>
           <div class="aspect-card-body">
-            <div class="aspect-title-row">
-              <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
-                </svg>
-              </span>
-              <h3 class="aspect-card-title">01 — Focus Support</h3>
-            </div>
+            <h3 class="aspect-card-title">01 — Focus Support</h3>
             <p class="aspect-card-desc">
               बच्चों की Focus और Concentration से जुड़ी ज़रूरतों के लिए।
             </p>
@@ -2117,16 +2384,7 @@
             <img src="images/images (7).jpg" alt="Memory Support">
           </div>
           <div class="aspect-card-body">
-            <div class="aspect-title-row">
-              <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
-                </svg>
-              </span>
-              <h3 class="aspect-card-title">02 — Memory Support</h3>
-            </div>
+            <h3 class="aspect-card-title">02 — Memory Support</h3>
             <p class="aspect-card-desc">
               Memory Care और Learning से जुड़े पहलुओं के लिए।
             </p>
@@ -2140,16 +2398,7 @@
               alt="Nervous System Support">
           </div>
           <div class="aspect-card-body">
-            <div class="aspect-title-row">
-              <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
-                </svg>
-              </span>
-              <h3 class="aspect-card-title">03 — Nervous System Support</h3>
-            </div>
+            <h3 class="aspect-card-title">03 — Nervous System Support</h3>
             <p class="aspect-card-desc">
               दिमाग़ और शरीर के बीच संदेश पहुँचाने वाली Nerves की सेहत का ख्याल रखने के लिए।
             </p>
@@ -2162,16 +2411,7 @@
             <img src="images/images (9).jpg" alt="Brain-Body Connection Support">
           </div>
           <div class="aspect-card-body">
-            <div class="aspect-title-row">
-              <span class="aspect-leaf-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"></path>
-                  <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 12"></path>
-                </svg>
-              </span>
-              <h3 class="aspect-card-title">04 — Brain-Body Connection Support</h3>
-            </div>
+            <h3 class="aspect-card-title">04 — Brain-Body Connection Support</h3>
             <p class="aspect-card-desc">
               दिमाग़ और मांसपेशियों के बीच बेहतर तालमेल, संतुलन (Balance) और सही एक्टिव मूवमेंट्स के लिए।
             </p>
@@ -2196,7 +2436,7 @@
         <!-- Item 1: Brahmi (Left Image, Right Text) -->
         <div class="ingredient-card">
           <div class="ingredient-photo-frame">
-            <img src="images/images (10).jpg" alt="ब्राह्मी (Brahmi)">
+            <img src="images/i1.avif" alt="ब्राह्मी (Brahmi)">
           </div>
           <div class="ingredient-text-box">
             <h3 class="ingredient-title">
@@ -2208,7 +2448,7 @@
         <!-- Item 2: Shankhpushpi (Right Image, Left Text) -->
         <div class="ingredient-card reverse-card">
           <div class="ingredient-photo-frame">
-            <img src="images/images (11).jpg" alt="शंखपुष्पी (Shankhpushpi)">
+            <img src="images/i2.avif" alt="शंखपुष्पी (Shankhpushpi)">
           </div>
           <div class="ingredient-text-box">
             <h3 class="ingredient-title">
@@ -2220,7 +2460,7 @@
         <!-- Item 3: Jatamansi (Left Image, Right Text) -->
         <div class="ingredient-card">
           <div class="ingredient-photo-frame">
-            <img src="images/images (12).jpg" alt="जटामांसी (Jatamansi)">
+            <img src="images/i3.avif" alt="जटामांसी (Jatamansi)">
           </div>
           <div class="ingredient-text-box">
             <h3 class="ingredient-title">
@@ -2232,7 +2472,7 @@
         <!-- Item 4: Vacha (Right Image, Left Text) -->
         <div class="ingredient-card reverse-card">
           <div class="ingredient-photo-frame">
-            <img src="images/images (13).jpg" alt="वच (Vacha)">
+            <img src="images/i4.avif" alt="वच (Vacha)">
           </div>
           <div class="ingredient-text-box">
             <h3 class="ingredient-title">
@@ -2266,7 +2506,7 @@
         <div class="ba-grid-row">
           <div class="ba-card before-card">
             <div class="ba-card-img-box">
-              <img src="images/ba-focus-before.jpg" alt="पढ़ाई और ध्यान लगाने में कठिनाई व चिड़चिड़ापन">
+              <img src="images/ba-focus-before.avif" alt="पढ़ाई और ध्यान लगाने में कठिनाई व चिड़चिड़ापन">
             </div>
             <div class="ba-card-caption">
               पढ़ाई और ध्यान लगाने में कठिनाई व बार-बार चिड़चिड़ापन
@@ -2274,7 +2514,7 @@
           </div>
           <div class="ba-card after-card">
             <div class="ba-card-img-box">
-              <img src="images/ba-focus-after.jpg" alt="बेहतर Focus और नई बातें सीखने में रुचि">
+              <img src="images/ba-focus-after.avif" alt="बेहतर Focus और नई बातें सीखने में रुचि">
             </div>
             <div class="ba-card-caption">
               बेहतर Focus, नई बातें सीखने में रुचि और शांत स्वभाव
@@ -2286,7 +2526,7 @@
         <div class="ba-grid-row">
           <div class="ba-card before-card">
             <div class="ba-card-img-box">
-              <img src="images/ba-walk-before.jpg" alt="मांसपेशियों में कमजोरी व चलने में असंतुलन">
+              <img src="images/before.avif" alt="मांसपेशियों में कमजोरी व चलने में असंतुलन">
             </div>
             <div class="ba-card-caption">
               मांसपेशियों में कमजोरी, चलने में असंतुलन व सुस्ती
@@ -2294,7 +2534,7 @@
           </div>
           <div class="ba-card after-card">
             <div class="ba-card-img-box">
-              <img src="images/ba-walk-after.jpg" alt="आत्मविश्वास से चलना-दौड़ना व शारीरिक स्फूर्ति">
+              <img src="images/ba-walk-after.avif" alt="आत्मविश्वास से चलना-दौड़ना व शारीरिक स्फूर्ति">
             </div>
             <div class="ba-card-caption">
               आत्मविश्वास से चलना-दौड़ना, शारीरिक स्फूर्ति व मुस्कान
@@ -2315,7 +2555,7 @@
         <!-- 1. GMP -->
         <div class="qt-card qt-card-1">
           <div class="qt-logo-box">
-            <img src="images/cert-gmp.png" alt="GMP">
+            <img src="images/cert1.avif" alt="GMP">
           </div>
           <h3 class="qt-card-title">GMP</h3>
         </div>
@@ -2323,7 +2563,7 @@
         <!-- 2. ISO -->
         <div class="qt-card qt-card-2">
           <div class="qt-logo-box">
-            <img src="images/cert-iso.png" alt="ISO">
+            <img src="images/iso.avif" alt="ISO">
           </div>
           <h3 class="qt-card-title">ISO</h3>
         </div>
@@ -2331,7 +2571,7 @@
         <!-- 3. FSSAI -->
         <div class="qt-card qt-card-3">
           <div class="qt-logo-box">
-            <img src="images/cert-fssai.png" alt="FSSAI">
+            <img src="images/cert3.avif" alt="FSSAI">
           </div>
           <h3 class="qt-card-title">FSSAI</h3>
         </div>
@@ -2339,7 +2579,7 @@
         <!-- 4. Quality Tested -->
         <div class="qt-card qt-card-4">
           <div class="qt-logo-box">
-            <img src="images/cert-tested.png" alt="Quality Tested">
+            <img src="images/cert4.avif" alt="Quality Tested">
           </div>
           <h3 class="qt-card-title">Quality Tested</h3>
         </div>
@@ -2357,8 +2597,45 @@
           </h2>
         </div>
 
-        <!-- Form Body -->
-        <form class="order-form-body" id="orderForm" novalidate>
+        <!-- Adyos Form Embed -->
+        <div class="adyos-embed-container" id="adyosEmbedContainer" style="padding: 16px 12px 10px 12px; min-height: 280px; background: #FFFFFF;">
+          <div class="adyos-form" data-form="sathi-kumar"></div>
+          <script src="https://app.adyops.com/embed.js" data-form="sathi-kumar" data-workspace="spherbal" async></script>
+        </div>
+
+        <!-- Trust Badges Footer -->
+        <div class="order-trust-footer" style="padding: 10px 14px 22px 14px;">
+          <span class="order-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+              <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+            </svg>
+            Secure Order
+          </span>
+          <span class="order-trust-sep">&middot;</span>
+          <span class="order-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+            Product Information
+          </span>
+          <span class="order-trust-sep">&middot;</span>
+          <span class="order-trust-item">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+              stroke-linejoin="round">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+            Delivery Details
+          </span>
+        </div>
+
+        <!-- Previous Mock Form (Hidden while Adyos Embed is active) -->
+        <form class="order-form-body" id="orderForm" style="display: none;" novalidate>
           <!-- Field 1: Name -->
           <div class="order-field-group">
             <label class="order-field-label" for="user-name">
@@ -2374,6 +2651,18 @@
                 placeholder="अपना पूरा नाम दर्ज करें" autocomplete="name">
             </div>
             <div class="order-field-error" id="nameError">कृपया अपना नाम दर्ज करें</div>
+          </div>
+
+          <div class="order-field-group">
+            <label class="order-field-label" for="user-pincode">Pincode <span class="required-dot">*</span></label>
+            <input type="text" inputmode="numeric" id="user-pincode" name="pincode" class="order-field-input" placeholder="6-digit pincode" maxlength="6" autocomplete="postal-code" required>
+            <div class="order-field-error" id="pincodeError"></div>
+          </div>
+
+          <div class="order-field-group">
+            <label class="order-field-label" for="user-address">Complete Address <span class="required-dot">*</span></label>
+            <textarea id="user-address" name="address" class="order-field-input address-input" placeholder="24, Street Name, Area, City, State" autocomplete="street-address" required></textarea>
+            <div class="order-field-error" id="addressError"></div>
           </div>
 
           <!-- Field 2: Mobile Number -->
@@ -2403,6 +2692,7 @@
               <polyline points="12 5 19 12 12 19"></polyline>
             </svg>
           </button>
+          <p class="order-form-status" id="backupFormStatus" role="status" aria-live="polite" hidden></p>
 
           <!-- Trust Badges Footer -->
           <div class="order-trust-footer">
@@ -2449,142 +2739,106 @@
         Neuro Mantra के बारे में ग्राहकों की वास्तविक प्रतिक्रियाएँ और अनुभव जानें।
       </p>
 
-      <div class="parent-reviews-list">
-        <!-- Review 1 -->
-        <div class="parent-review-card">
-          <div class="parent-avatar-box">
-            <div class="parent-avatar-circle">
-              <img src="images/review-user-1.png" alt="रमेश शर्मा" loading="lazy">
-            </div>
-            <span class="parent-city-pill">जयपुर</span>
+      <div class="reviews-timeline">
+        <!-- Review 1: Amit Sharma, Jaipur -->
+        <div class="review-timeline-item">
+          <div class="review-timeline-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
           </div>
-          <div class="parent-review-content">
-            <div class="parent-review-top">
-              <h4 class="parent-name">रमेश शर्मा</h4>
-              <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
+          <div class="review-card-modern">
+            <div class="review-card-header">
+              <div class="review-gold-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span class="review-quote-mark" aria-hidden="true">&#x201D;</span>
+            </div>
+            <p class="review-story-text">
+              मेरे 4 साल के बेटे की गर्दन में सही संतुलन नहीं था और मुंह से बार-बार लार टपकने की बहुत समस्या रहती थी। मांसपेशियों में कमजोरी के कारण वह हाथ से चीजें पकड़ नहीं पाता था और जल्दी थक जाता था। डॉक्टर की थेरेपी के साथ हमने Neuro Mantra Syrup देना शुरू किया। लगभग डेढ़ महीने में उसकी लार टपकने में बहुत कमी आई और गर्दन का नियंत्रण भी मजबूत हुआ। अब वह बिना किसी सहारे के अपनी चीजें खुद उठाने और खाने लगा है।
+            </p>
+            <div class="review-card-divider"></div>
+            <div class="review-author-row">
+              <div class="review-author-thumb">
+                <img src="images/p1.avif" alt="Amit Sharma with son" loading="lazy" style="object-position: center 30%;">
+              </div>
+              <div class="review-author-meta">
+                <h4 class="review-author-name">Amit Sharma</h4>
+                <p class="review-author-city">Jaipur</p>
               </div>
             </div>
-            <p class="parent-review-quote">
-              Neuro Mantra Syrup शुरू करने के कुछ हफ्तों बाद ही बच्चे में सकारात्मक बदलाव दिखने लगे। अब वह चीज़ों पर
-              बेहतर ध्यान लगा पा रहा है और चिड़चिड़ापन काफी कम हो गया है।
-            </p>
           </div>
         </div>
 
-        <!-- Review 2 -->
-        <div class="parent-review-card">
-          <div class="parent-avatar-box">
-            <div class="parent-avatar-circle">
-              <img src="images/review-user-2.png" alt="सुरेश वर्मा" loading="lazy">
-            </div>
-            <span class="parent-city-pill city-blue">भोपाल</span>
+        <!-- Review 2: Rajesh Verma, Delhi -->
+        <div class="review-timeline-item">
+          <div class="review-timeline-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
           </div>
-          <div class="parent-review-content">
-            <div class="parent-review-top">
-              <h4 class="parent-name">सुरेश वर्मा</h4>
-              <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
+          <div class="review-card-modern">
+            <div class="review-card-header">
+              <div class="review-gold-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span class="review-quote-mark" aria-hidden="true">&#x201D;</span>
+            </div>
+            <p class="review-story-text">
+              मेरे 5 वर्षीय बेटे को चलने-फिरने में भारी परेशानी होती थी। चलते समय पैर कांपते थे और बॉडी का Balance न बन पाने से वह बार-बार लड़खड़ाकर गिर जाता था। हमने Neuro Mantra Syrup को नियमित रूप से देना शुरू किया। 6-7 हफ्तों में उसके पैरों की मांसपेशियों में ताकत और स्थिरता आने लगी। अब वह बहुत अच्छे संतुलन के साथ बिना गिरे चलता और पार्क में खेलता भी है। एक पिता के रूप में यह सकारात्मक बदलाव देखना हमारे लिए बहुत सुकून देने वाला है।
+            </p>
+            <div class="review-card-divider"></div>
+            <div class="review-author-row">
+              <div class="review-author-thumb">
+                <img src="images/p2.avif" alt="Rajesh Verma with son" loading="lazy" style="object-position: center 20%;">
+              </div>
+              <div class="review-author-meta">
+                <h4 class="review-author-name">Rajesh Verma</h4>
+                <p class="review-author-city">Delhi</p>
               </div>
             </div>
-            <p class="parent-review-quote">
-              इसका स्वाद बहुत अच्छा है इसलिए बच्चा बिना किसी परेशानी के रोज़ इसे ले लेता है। चलने-फिरने में शारीरिक
-              संतुलन और एक्टिवनेस में बहुत सुधार आया है।
-            </p>
           </div>
         </div>
 
-        <!-- Review 3 -->
-        <div class="parent-review-card">
-          <div class="parent-avatar-box">
-            <div class="parent-avatar-circle">
-              <img src="images/review-user-3.png" alt="मीना गुप्ता" loading="lazy">
-            </div>
-            <span class="parent-city-pill">दिल्ली</span>
+        <!-- Review 3: Neha Gupta, Lucknow -->
+        <div class="review-timeline-item">
+          <div class="review-timeline-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24">
+              <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
           </div>
-          <div class="parent-review-content">
-            <div class="parent-review-top">
-              <h4 class="parent-name">मीना गुप्ता</h4>
-              <div class="parent-stars" aria-label="5 out of 5 stars">
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
-                <svg viewBox="0 0 24 24">
-                  <polygon
-                    points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2">
-                  </polygon>
-                </svg>
+          <div class="review-card-modern">
+            <div class="review-card-header">
+              <div class="review-gold-stars" aria-label="5 out of 5 stars">
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+                <svg viewBox="0 0 24 24"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon></svg>
+              </div>
+              <span class="review-quote-mark" aria-hidden="true">&#x201D;</span>
+            </div>
+            <p class="review-story-text">
+              हमारी बच्ची के शरीर में मांसपेशियों की अकड़न (Stiffness) बहुत ज्यादा थी और वह किसी भी काम या पढ़ाई पर ध्यान नहीं लगा पाती थी। Neuro Mantra Syrup का लगातार इस्तेमाल करने से उसकी अकड़न में बहुत सुधार आया है और शरीर पहले से काफी रिलैक्स हुआ है। अब वह पढ़ाई और एक्टिविटीज़ में पूरा ध्यान लगाती है और उसका चिड़चिड़ापन भी दूर हो गया है। पूरी तरह प्राकृतिक और सुरक्षित फॉर्मूलेशन है।
+            </p>
+            <div class="review-card-divider"></div>
+            <div class="review-author-row">
+              <div class="review-author-thumb">
+                <img src="images/p3.avif" alt="Neha Gupta with child" loading="lazy" style="object-position: center 25%;">
+              </div>
+              <div class="review-author-meta">
+                <h4 class="review-author-name">Neha Gupta</h4>
+                <p class="review-author-city">Lucknow</p>
               </div>
             </div>
-            <p class="parent-review-quote">
-              पूरी तरह प्राकृतिक और सुरक्षित आयुर्वेदिक फॉर्मूलेशन है। कोई साइड इफ़ेक्ट नहीं हुआ और पैकेजिंग भी बहुत
-              अच्छी है। इस प्रोडक्ट की क्वालिटी पर हमें पूरा भरोसा है।
-            </p>
           </div>
         </div>
       </div>
@@ -2671,7 +2925,7 @@
           </div>
         </div>
 
-        <!-- FAQ 5 -->
+        <!-- FAQ 5
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
             <span>5. Neuro Mantra Syrup का इस्तेमाल कैसे करें?</span>
@@ -2689,7 +2943,7 @@
         </div>
 
         <!-- FAQ 6 -->
-        <div class="faq-item">
+        <!-- <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
             <span>6. कितने समय में फ़र्क दिखता है?</span>
             <span class="faq-icon">
@@ -2703,12 +2957,12 @@
             <p>हर बच्चे की दिनचर्या अलग होती है। Neuro Mantra को नियमित रूप से, संतुलित खान-पान और अच्छी नींद के साथ
               देने पर बच्चे के Focus और Memory की देखभाल में बेहतर सपोर्ट मिलता है।</p>
           </div>
-        </div>
+        </div> -->
 
         <!-- FAQ 7 -->
         <div class="faq-item">
           <button class="faq-question" type="button" aria-expanded="false">
-            <span>7. क्या Cash on Delivery उपलब्ध है?</span>
+            <span>5. क्या Cash on Delivery उपलब्ध है?</span>
             <span class="faq-icon">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5"
                 stroke-linecap="round" stroke-linejoin="round">
@@ -2733,15 +2987,15 @@
           रोग विशेषज्ञ से सलाह लें।
         </p>
         <div class="footer-legal-links">
-          <a href="#" class="legal-link">Privacy Policy</a>
+          <a href="javascript:void(0)" class="legal-link" data-open-legal="privacy">Privacy Policy</a>
           <span class="legal-separator">|</span>
-          <a href="#" class="legal-link">Terms & Conditions</a>
+          <a href="javascript:void(0)" class="legal-link" data-open-legal="terms">Terms & Conditions</a>
           <span class="legal-separator">|</span>
-          <a href="#" class="legal-link">Shipping Policy</a>
+          <a href="javascript:void(0)" class="legal-link" data-open-legal="shipping">Shipping Policy</a>
           <span class="legal-separator">|</span>
-          <a href="#" class="legal-link">Cancellation Policy</a>
+          <a href="javascript:void(0)" class="legal-link" data-open-legal="cancellation">Cancellation Policy</a>
           <span class="legal-separator">|</span>
-          <a href="#" class="legal-link">Legal Disclaimer</a>
+          <a href="javascript:void(0)" class="legal-link" data-open-legal="disclaimer">Legal Disclaimer</a>
         </div>
       </div>
     </section>
@@ -2750,7 +3004,7 @@
   <!-- Sticky Bottom Floating Bar (Matching Reference) -->
   <aside class="sticky-bottom-bar" aria-label="Sticky Order Bar">
     <div class="sticky-thumb-box">
-      <img src="images/product image.jpeg" alt="Neuro Mantra Syrup">
+      <img src="images/product-bottle-thumb.jpeg" alt="Neuro Mantra Syrup">
     </div>
     <div class="sticky-info-col">
       <span class="sticky-product-title">Neuro Mantra</span>
@@ -2812,6 +3066,207 @@
     </div>
   </div>
 
+  <!-- Legal Policies Popup Modals -->
+  <div class="legal-modal-overlay" id="legalModalOverlay" role="dialog" aria-modal="true">
+    
+    <!-- 1. Privacy Policy Modal -->
+    <div class="legal-modal-card" id="legalModal-privacy">
+      <div class="legal-modal-header">
+        <div class="legal-modal-title-wrap">
+          <span class="legal-modal-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            </svg>
+          </span>
+          <h3 class="legal-modal-title">Privacy Policy</h3>
+        </div>
+        <button class="legal-modal-close-btn" type="button" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="legal-modal-scroll-content">
+        <span class="legal-modal-badge">Last updated: June 2025</span>
+        <p class="legal-modal-intro">
+          Nuero Mantra आपकी personal information की सुरक्षा को सर्वोच्च प्राथमिकता देता है। जब आप order करते हैं तो हम निम्नलिखित जानकारी एकत्र करते हैं:
+        </p>
+        <ul class="legal-modal-list">
+          <li>नाम, मोबाइल नंबर और delivery address</li>
+          <li>Payment details (encrypted और secure)</li>
+          <li>Order history और purchase records</li>
+        </ul>
+        <div class="legal-modal-callout">
+          आपकी जानकारी किसी third-party को नहीं बेची जाती। इसका उपयोग केवल order processing और delivery के लिए किया जाता है।
+        </div>
+        <p class="legal-modal-note">
+          हम industry-standard SSL encryption का उपयोग करते हैं। किसी भी privacy concern के लिए हमसे contact करें।
+        </p>
+      </div>
+    </div>
+
+    <!-- 2. Terms & Conditions Modal -->
+    <div class="legal-modal-card" id="legalModal-terms">
+      <div class="legal-modal-header">
+        <div class="legal-modal-title-wrap">
+          <span class="legal-modal-icon">
+            <svg viewBox="0 0 24 24">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
+              <polyline points="14 2 14 8 20 8"></polyline>
+              <line x1="16" y1="13" x2="8" y2="13"></line>
+              <line x1="16" y1="17" x2="8" y2="17"></line>
+              <polyline points="10 9 9 9 8 9"></polyline>
+            </svg>
+          </span>
+          <h3 class="legal-modal-title">Terms & Conditions</h3>
+        </div>
+        <button class="legal-modal-close-btn" type="button" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="legal-modal-scroll-content">
+        <span class="legal-modal-badge">Please read carefully</span>
+        <p class="legal-modal-intro">
+          Nuero Mantra का उपयोग करके आप इन terms से सहमत होते हैं:
+        </p>
+        <ul class="legal-modal-list">
+          <li>Product results व्यक्ति-दर-व्यक्ति अलग हो सकते हैं</li>
+          <li>यह product किसी बीमारी का इलाज नहीं है — wellness supplement है</li>
+          <li>18 वर्ष से कम आयु के व्यक्ति बिना guardian consent के order न करें</li>
+          <li>Fake/fraudulent orders के लिए legal action लिया जा सकता है</li>
+          <li>Product images केवल representation के लिए हैं</li>
+        </ul>
+        <div class="legal-modal-callout">
+          Nuero Mantra किसी भी समय बिना prior notice के prices, offers या specifications बदलने का अधिकार रखता है।
+        </div>
+      </div>
+    </div>
+
+    <!-- 3. Shipping Policy Modal -->
+    <div class="legal-modal-card" id="legalModal-shipping">
+      <div class="legal-modal-header">
+        <div class="legal-modal-title-wrap">
+          <span class="legal-modal-icon">
+            <svg viewBox="0 0 24 24">
+              <rect x="1" y="3" width="15" height="13"></rect>
+              <polygon points="16 8 20 8 23 11 23 16 16 16 8"></polygon>
+              <circle cx="5.5" cy="18.5" r="2.5"></circle>
+              <circle cx="18.5" cy="18.5" r="2.5"></circle>
+            </svg>
+          </span>
+          <h3 class="legal-modal-title">Shipping Policy</h3>
+        </div>
+        <button class="legal-modal-close-btn" type="button" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="legal-modal-scroll-content">
+        <span class="legal-modal-badge">Delivery All India</span>
+        <p class="legal-modal-intro">
+          हम पूरे India में shipping प्रदान करते हैं। Delivery timeline:
+        </p>
+        <ul class="legal-modal-list">
+          <li>Metro cities (Delhi, Mumbai, Bengaluru): 3–5 business days</li>
+          <li>Tier-2 / Tier-3 cities: 5–7 business days</li>
+          <li>Remote / rural areas: 7–10 business days</li>
+        </ul>
+        <div class="legal-modal-callout">
+          Order confirm होने के 24–48 घंटे के अंदर tracking number SMS/WhatsApp पर भेजा जाएगा।
+        </div>
+        <ul class="legal-modal-list" style="margin-top: 14px; margin-bottom: 0;">
+          <li>Delivery attempt 3 बार की जाएगी — उसके बाद order वापस आ जाएगा</li>
+          <li>Incorrect address की जिम्मेदारी customer की होगी</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 4. Cancellation Policy Modal -->
+    <div class="legal-modal-card" id="legalModal-cancellation">
+      <div class="legal-modal-header">
+        <div class="legal-modal-title-wrap">
+          <span class="legal-modal-icon">
+            <svg viewBox="0 0 24 24">
+              <polyline points="1 4 1 10 7 10"></polyline>
+              <polyline points="23 20 23 14 17 14"></polyline>
+              <path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path>
+            </svg>
+          </span>
+          <h3 class="legal-modal-title">Cancellation Policy</h3>
+        </div>
+        <button class="legal-modal-close-btn" type="button" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="legal-modal-scroll-content">
+        <span class="legal-modal-badge">7-Day Easy Return</span>
+        <p class="legal-modal-intro">
+          आप order confirm होने के 24 घंटे के अंदर cancellation request कर सकते हैं।
+        </p>
+        <ul class="legal-modal-list">
+          <li>Order dispatch होने के बाद cancellation संभव नहीं</li>
+          <li>Damaged या wrong product मिलने पर 7 दिन के अंदर complaint करें</li>
+          <li>Opened/used products return नहीं किए जाएंगे</li>
+          <li>Refund 5–7 business days में original payment method पर</li>
+        </ul>
+        <div class="legal-modal-callout">
+          Return के लिए product original packaging में होना ज़रूरी है। Unboxing video होने पर claim जल्दी process होता है।
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. Legal Disclaimer Modal -->
+    <div class="legal-modal-card" id="legalModal-disclaimer">
+      <div class="legal-modal-header">
+        <div class="legal-modal-title-wrap">
+          <span class="legal-modal-icon">
+            <svg viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="10"></circle>
+              <line x1="12" y1="8" x2="12" y2="12"></line>
+              <line x1="12" y1="16" x2="12.01" y2="16"></line>
+            </svg>
+          </span>
+          <h3 class="legal-modal-title">Legal Disclaimer</h3>
+        </div>
+        <button class="legal-modal-close-btn" type="button" aria-label="Close modal">
+          <svg viewBox="0 0 24 24" width="18" height="18" stroke="currentColor" stroke-width="2.6" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </button>
+      </div>
+      <div class="legal-modal-scroll-content">
+        <span class="legal-modal-badge">Important Notice</span>
+        <p class="legal-modal-intro">
+          Nuero Mantra एक natural wellness supplement है। इस product के बारे में निम्नलिखित बातें ध्यान में रखें:
+        </p>
+        <ul class="legal-modal-list">
+          <li>यह product किसी भी बीमारी का diagnosis, treatment, cure या prevention नहीं करता</li>
+          <li>Results individual to individual अलग हो सकते हैं</li>
+          <li>यह product FSSAI guidelines के अनुसार एक food supplement है, drug नहीं</li>
+          <li>किसी भी medical condition में उपयोग से पहले doctor से परामर्श करें</li>
+          <li>Pregnant, nursing women या किसी chronic illness वाले व्यक्ति पहले physician से consult करें</li>
+        </ul>
+        <div class="legal-modal-callout">
+          Website पर दिए गए statements को Food & Drug Administration द्वारा evaluate नहीं किया गया है। यह product किसी disease को diagnose, treat, cure या prevent करने के लिए नहीं है।
+        </div>
+        <p class="legal-modal-note">
+          Product की images, descriptions और testimonials केवल illustrative purpose के लिए हैं। Nuero Mantra किसी भी indirect या consequential loss के लिए उत्तरदायी नहीं है।
+        </p>
+      </div>
+    </div>
+
+  </div>
+
   <!-- Form Validation & Modal Script -->
   <script>
     document.addEventListener('DOMContentLoaded', function () {
@@ -2830,130 +3285,130 @@
       const modalCustomerPhone = document.getElementById('modalCustomerPhone');
       const modalOrderId = document.getElementById('modalOrderId');
 
-      // Validation helper for Name
-      function validateName(showEmptyError = true) {
-        const val = nameInput.value.trim();
-        if (!val) {
-          if (showEmptyError) {
-            nameInput.classList.add('is-invalid');
-            nameWrapper.classList.add('is-invalid');
-            nameError.textContent = 'कृपया अपना नाम दर्ज करें';
-            nameError.classList.add('show');
-          } else {
-            nameInput.classList.remove('is-invalid');
-            nameWrapper.classList.remove('is-invalid');
-            nameError.classList.remove('show');
-          }
-          return false;
-        }
-
-        // Check if input contains digits or invalid characters (allow English, Hindi letters, spaces, dots)
-        const lettersOnlyRegex = /^[\u0900-\u097Fa-zA-Z\s.'-]+$/;
-        if (/\d/.test(val) || !lettersOnlyRegex.test(val)) {
-          nameInput.classList.add('is-invalid');
-          nameWrapper.classList.add('is-invalid');
-          nameError.textContent = 'कृपया केवल अक्षरों में नाम लिखें';
-          nameError.classList.add('show');
-          return false;
-        }
-
-        if (val.length < 2) {
-          nameInput.classList.add('is-invalid');
-          nameWrapper.classList.add('is-invalid');
-          nameError.textContent = 'कृपया केवल अक्षरों में नाम लिखें';
-          nameError.classList.add('show');
-          return false;
-        }
-
-        nameInput.classList.remove('is-invalid');
-        nameWrapper.classList.remove('is-invalid');
-        nameError.classList.remove('show');
-        return true;
+      // AdyOps stays primary; reveal the backup only when no rendered form appears.
+      const GOOGLE_SHEETS_API_URL = 'https://script.google.com/macros/s/AKfycbweh_omkcPc35ihvtKS34k85HM4IA1Q3Ar88pxBDeNhhPPBDkpRkIuCDPDg6YjSTj5aLg/exec';
+      const adyopsContainer = document.getElementById('adyosEmbedContainer');
+      const adyopsScript = adyopsContainer.querySelector('script[src*="app.adyops.com/embed.js"]');
+      const backupForm = document.getElementById('orderForm');
+      const formStatus = document.getElementById('backupFormStatus');
+      let embedResolved = false;
+      function showBackupForm() {
+        if (embedResolved) return;
+        embedResolved = true;
+        adyopsContainer.hidden = true;
+        backupForm.style.display = 'flex';
       }
-
-      // Validation helper for Phone
-      function validatePhone(showEmptyError = true) {
-        const val = phoneInput.value.trim();
-        if (!val) {
-          if (showEmptyError) {
-            phoneInput.classList.add('is-invalid');
-            phoneWrapper.classList.add('is-invalid');
-            phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
-            phoneError.classList.add('show');
-          } else {
-            phoneInput.classList.remove('is-invalid');
-            phoneWrapper.classList.remove('is-invalid');
-            phoneError.classList.remove('show');
-          }
-          return false;
-        }
-
-        if (!/^[6-9]\d{9}$/.test(val)) {
-          phoneInput.classList.add('is-invalid');
-          phoneWrapper.classList.add('is-invalid');
-          phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
-          phoneError.classList.add('show');
-          return false;
-        }
-
-        phoneInput.classList.remove('is-invalid');
-        phoneWrapper.classList.remove('is-invalid');
-        phoneError.classList.remove('show');
-        return true;
+      function hasRenderedAdyopsForm() {
+        if (adyopsContainer.querySelectorAll('input, select, textarea, button').length >= 2) return true;
+        return Array.from(adyopsContainer.querySelectorAll('iframe')).some(frame => {
+          const rect = frame.getBoundingClientRect();
+          return rect.width > 100 && rect.height > 120;
+        });
       }
-
-      // Live validation as user types
-      nameInput.addEventListener('input', function () {
-        if (nameInput.value.trim().length > 0) {
-          validateName(true);
-        } else {
-          nameInput.classList.remove('is-invalid');
-          nameWrapper.classList.remove('is-invalid');
-          nameError.classList.remove('show');
+      const embedObserver = new MutationObserver(() => {
+        if (hasRenderedAdyopsForm()) {
+          embedResolved = true;
+          clearTimeout(embedTimeout);
+          clearInterval(embedPoll);
+          embedObserver.disconnect();
         }
       });
+      embedObserver.observe(adyopsContainer, { childList: true, subtree: true, attributes: true });
+      const embedPoll = setInterval(() => {
+        if (hasRenderedAdyopsForm()) {
+          embedResolved = true;
+          clearTimeout(embedTimeout);
+          clearInterval(embedPoll);
+          embedObserver.disconnect();
+        }
+      }, 300);
+      const embedTimeout = setTimeout(showBackupForm, 12000);
+      let postLoadRenderTimeout;
+      if (adyopsScript) {
+        adyopsScript.addEventListener('load', () => {
+          clearTimeout(embedTimeout);
+          postLoadRenderTimeout = setTimeout(() => {
+            if (!embedResolved && !hasRenderedAdyopsForm()) showBackupForm();
+          }, 800);
+        }, { once: true });
+      }
+      document.addEventListener('error', event => {
+        if (event.target && event.target.src && event.target.src.includes('app.adyops.com/embed.js')) {
+          clearTimeout(embedTimeout);
+          clearTimeout(postLoadRenderTimeout);
+          showBackupForm();
+        }
+      }, true);
 
-      phoneInput.addEventListener('input', function () {
-        phoneInput.value = phoneInput.value.replace(/\D/g, '').slice(0, 10);
-        const val = phoneInput.value.trim();
-        if (val.length === 10) {
-          validatePhone(true);
-        } else if (val.length > 0 && !/^[6-9]/.test(val)) {
-          phoneInput.classList.add('is-invalid');
-          phoneWrapper.classList.add('is-invalid');
-          phoneError.textContent = '10 अंकों का सही मोबाइल नंबर डालें (6-9 से शुरू)';
-          phoneError.classList.add('show');
-        } else {
-          phoneInput.classList.remove('is-invalid');
-          phoneWrapper.classList.remove('is-invalid');
-          phoneError.classList.remove('show');
+      const backupFields = [
+        { input: nameInput, error: nameError, valid: value => /^[A-Za-z ]+$/.test(value) && value.trim().length > 0, message: 'Enter your name using English letters and spaces only.' },
+        { input: phoneInput, error: phoneError, valid: value => /^\d{10}$/.test(value), message: 'Enter exactly 10 digits.' },
+        { input: document.getElementById('user-pincode'), error: document.getElementById('pincodeError'), valid: value => /^\d{6}$/.test(value), message: 'Enter exactly 6 digits.' },
+        { input: document.getElementById('user-address'), error: document.getElementById('addressError'), valid: value => /^\d{2}[, ]+\S[\s\S]*$/.test(value.trim()), message: 'Start with a 2-digit house number, then a comma or space and the full address.' }
+      ];
+      function validateField(field) {
+        const valid = field.valid(field.input.value.trim());
+        field.input.classList.toggle('is-invalid', !valid);
+        field.error.textContent = valid ? '' : field.message;
+        field.error.classList.toggle('show', !valid);
+        return valid;
+      }
+      backupFields.forEach(field => field.input.addEventListener('input', () => {
+        const limit = field.input.id === 'user-phone' ? 10 : field.input.id === 'user-pincode' ? 6 : 0;
+        if (limit) field.input.value = field.input.value.replace(/\D/g, '').slice(0, limit);
+        if (field.input.value) validateField(field);
+      }));
+      function getUtmData() {
+        const keys = ['utm_source','utm_medium','utm_campaign','utm_campaign_id','utm_adset','utm_adset_id','utm_ad','utm_ad_id','utm_content','utm_term','utm_placement','device_platform'];
+        const current = new URLSearchParams(window.location.search);
+        let saved = {};
+        try { saved = JSON.parse(sessionStorage.getItem('landingUtmParams') || '{}'); } catch (_) {}
+        keys.forEach(key => { if (current.has(key)) saved[key] = current.get(key); });
+        try { sessionStorage.setItem('landingUtmParams', JSON.stringify(saved)); } catch (_) {}
+        return saved;
+      }
+      getUtmData();
+      backupForm.addEventListener('submit', async event => {
+        event.preventDefault();
+        if (!backupFields.map(validateField).every(Boolean)) return;
+        const submitButton = backupForm.querySelector('button[type="submit"]');
+        if (submitButton.disabled) return;
+        submitButton.disabled = true;
+        formStatus.hidden = true;
+        const payload = {
+          name: nameInput.value.trim(), contact: phoneInput.value.trim(),
+          pincode: document.getElementById('user-pincode').value.trim(),
+          address: document.getElementById('user-address').value.trim(),
+          product_name: document.querySelector('.product-main-title')?.textContent.trim() || document.title,
+          page_url: window.location.href, timestamp: new Date().toISOString(), ...getUtmData()
+        };
+        try {
+          const response = await fetch(GOOGLE_SHEETS_API_URL, {
+            // Apps Script redirects its web-app response across origins; no-cors
+            // lets the browser send the form post even when that response cannot
+            // be read by the landing page.
+            method: 'POST', mode: 'no-cors', redirect: 'follow',
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+            body: new URLSearchParams(payload).toString()
+          });
+          let confirmed = response.type === 'opaque';
+          if (!confirmed) {
+            const responseText = (await response.text()).trim();
+            try {
+              const result = JSON.parse(responseText);
+              confirmed = response.ok && (result.success === true || result.status === 'success' || result.result === 'success');
+            } catch (_) {
+              confirmed = response.ok && /^(ok|success)$/i.test(responseText);
+            }
+          }
+          if (!confirmed) throw new Error('Submission not confirmed');
+          window.location.href = `thankyou.html?name=${encodeURIComponent(payload.name)}&phone=${encodeURIComponent(payload.contact)}`;
+        } catch (_) {
+          formStatus.textContent = 'Submission failed. Please try again.';
+          formStatus.hidden = false;
+          submitButton.disabled = false;
         }
       });
-
-      // Submit Validation
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        const isNameValid = validateName(true);
-        const isPhoneValid = validatePhone(true);
-
-        if (!isNameValid || !isPhoneValid) return;
-
-        const nameVal = nameInput.value.trim();
-        const phoneVal = phoneInput.value.trim();
-
-        // Generate Random 6-digit Order ID (e.g. NM-583219)
-        const randomNum = Math.floor(100000 + Math.random() * 900000);
-        const orderId = 'NM-' + randomNum;
-
-        // Populate Modal Fields
-        modalCustomerName.textContent = nameVal;
-        modalCustomerPhone.textContent = '+91 ' + phoneVal;
-        modalOrderId.textContent = orderId;
-
-        // Redirect to dedicated Thank You Page
-        window.location.href = `thankyou.html?name=${encodeURIComponent(nameVal)}&phone=${encodeURIComponent(phoneVal)}&orderId=${encodeURIComponent(orderId)}`;
-      });
-
       // Close Modal Handler
       function closeModal() {
         modal.classList.remove('active');
@@ -3005,6 +3460,66 @@
           }
         });
       }
+
+      // ========================================================
+      // Legal Policies Modal Popups
+      // ========================================================
+      const legalOverlay = document.getElementById('legalModalOverlay');
+      const legalCards = document.querySelectorAll('.legal-modal-card');
+      const legalOpenBtns = document.querySelectorAll('[data-open-legal]');
+      const legalCloseBtns = document.querySelectorAll('.legal-modal-close-btn');
+
+      function openLegalModal(modalId) {
+        if (!legalOverlay) return;
+        legalCards.forEach(card => card.classList.remove('active'));
+        const targetCard = document.getElementById(modalId);
+        if (targetCard) {
+          targetCard.classList.add('active');
+          legalOverlay.classList.add('active');
+          document.body.style.overflow = 'hidden';
+          const scrollBox = targetCard.querySelector('.legal-modal-scroll-content');
+          if (scrollBox) {
+            scrollBox.scrollTop = 0;
+          }
+        }
+      }
+
+      function closeLegalModal() {
+        if (!legalOverlay) return;
+        legalOverlay.classList.remove('active');
+        legalCards.forEach(card => card.classList.remove('active'));
+        document.body.style.overflow = '';
+      }
+
+      legalOpenBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          const targetType = this.getAttribute('data-open-legal');
+          const targetModalId = 'legalModal-' + targetType;
+          openLegalModal(targetModalId);
+        });
+      });
+
+      legalCloseBtns.forEach(btn => {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          closeLegalModal();
+        });
+      });
+
+      if (legalOverlay) {
+        legalOverlay.addEventListener('click', function (e) {
+          if (e.target === legalOverlay) {
+            closeLegalModal();
+          }
+        });
+      }
+
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape' && legalOverlay && legalOverlay.classList.contains('active')) {
+          closeLegalModal();
+        }
+      });
     });
   </script>
 </body>
